@@ -26,7 +26,7 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 		* [Registration](#registration)
 	* [Optional Features](#optional-features)
 		* [Limits, Offsets and Cursors](#limits-offsets-and-cursors)
-		* [Structure Error Handling](#structure-error-handling)
+		* [Structured Error Handling](#structured-error-handling)
 		* [URI structure filtering](#uri-structure-filtering)
 		* [URI argument filtering](#uri-argument-filtering)
 		* [Versioning](#versioning)
@@ -102,6 +102,8 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 
 ### URI Structure
 
+
+
 ### Output
 #### Minimum Formats
 #### Official Languages
@@ -113,7 +115,41 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 
 ## Optional features
 ### Limits, Offsets and Cursors
-### Structure Error Handling
+### Structured Error Handling
+
+Although errors can be represented by HTTP status code alone structured error handling improves the ability to resolve issues for both consumer and maintainer.
+
+Research into common practice provides the following error structure:
+* Error responses are to be an HTTP status code
+* The same code is to be included
+* A message for the developer
+* A message for the end-user ( when appropriate )
+* An internal error code ( corresponding to an internal code if available )
+* A link where developers can find more information ( if available )
+
+In JSON format
+
+`
+    {
+        "status" : "400",
+        "developerMessage" : "Verbose, plain language description of the problem. Provide developers
+        suggestions about how to solve their problems here",
+        "userMessage" : "This is a message that can be passed along to end-users, if needed.",
+        "errorCode" : "444444",
+        "more info" : "http://example.gc.ca/developer/path/to/help/for/444444",
+    }
+`
+
+The three base states to recognize are success, improper request ( client error ) and internal server error ( API error ).  These better defined by the following HTTP Status codes:
+
+* 200 - OK
+* 400 - Bad Request
+* 500 - Internal Server Error
+
+Where possible the following codes should be used in the following circumstances:
+
+`TODO: Add the additional errors sugested including 404, 304 and others`
+
 ### URI structure filtering
 ### URI argument filtering
 ### Versioning
