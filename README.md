@@ -25,11 +25,11 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 		* [Documentation](#documentation)
 		* [Registration](#registration)
 	* [Optional Features](#optional-features)
-		* [Limits, Offsets and Cursors](#limits-offsets-and-cursors)
+		* [Dataset segmenting](#dataset-segmenting)
 			* [Limits](#limits)
 			* [Offsets](#offsets)
 			* [Pages](#pages)
-			* [Metadata](#metadata)
+			* [Dataset segmenting metadata](#dataset-segmenting-metadata)
 		* [Structured Error Handling](#structured-error-handling)
 		* [URI structure filtering](#uri-structure-filtering)
 		* [URI argument filtering](#uri-argument-filtering)
@@ -118,7 +118,7 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 ### Registration
 
 ## Optional features
-### Limits, Offsets and Cursors
+### Dataset segmenting
 
 Limits are nearly always mandatory, only limited size datasets are safe to to implement with a default and maximum limit.  These elements are to be added where possible and relevant.  A second, but no less important, consideration for the client creates requierments such as moblie device limitations and dataset size.
 
@@ -170,7 +170,7 @@ Example use:
 * http://example.gc.ca/api/dataset?limit=25&cursor=20130101.010101
     * For 25 rows following the row containing the sort order value "20130101.010101"
 
-#### Metadata
+#### Dataset segmenting metadata
 
 Information relevant to record limits, offsets and indexes should also be included as described in the example resonse as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
 
