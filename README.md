@@ -113,6 +113,24 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 ### Output
 #### Metadata
 #### Minimum Formats
+
+```
+NOTE:
+
+Presently JSON and XML, probably can't shake that but...
+
+Trends are not good for XML:
+https://www.google.com/trends/explore?q=xml+api#q=xml%20api%2C%20json%20api&cmpt=q
+
+The private sector, built of developers and their clients, is not good for XML:
+
+The WHATWG forced the W3C to re-open HTML developemnt from an xHTML grave.  The future is not XML.
+
+* http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html
+* http://lists.whatwg.org/htdig.cgi/whatwg-whatwg.org/2004-June/000005.html
+* http://blog.whatwg.org/this-week-in-html-5-episode-5
+```
+
 #### Official Languages
 
 ```
