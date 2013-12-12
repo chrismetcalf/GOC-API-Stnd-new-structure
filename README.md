@@ -26,6 +26,10 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 		* [Registration](#registration)
 	* [Optional Features](#optional-features)
 		* [Limits, Offsets and Cursors](#limits-offsets-and-cursors)
+			* [Limits](#limits)
+			* [Offsets](#offsets)
+			* [Pages](#pages)
+			* [Metadata](#metadata)
 		* [Structured Error Handling](#structured-error-handling)
 		* [URI structure filtering](#uri-structure-filtering)
 		* [URI argument filtering](#uri-argument-filtering)
@@ -115,6 +119,98 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 
 ## Optional features
 ### Limits, Offsets and Cursors
+
+Limits are nearly always mandatory, only limited size datasets are safe to to implement with a default and maximum limit.  These elements are to be added where possible and relevant.  A second, but no less important, consideration for the client creates requierments such as moblie device limitations and dataset size.
+
+#### Limits
+
+* If no limit is specified, return results with a default limit.
+    * Sanity check to a reasonable return size
+    * Sanity check to a reaonsable execution time
+    * For small datasets limits may exceed row count
+
+* Limits are row / object limits
+    * The organization decides what is to be in a row or object
+    * Limits apply to the topmost logical row or object
+
+Limits are to be defined as the singular `limit=` followed by an integer.
+
+#### Offsets
+
+Offsets apply to the structured data returned from the API distinct from internal indexing in the data.  For the purpose of explanation we'll assume rows/objects return are numbered 1, 2, 3, 4, 5 to the limit.
+
+The general logic is to shift to what would be the subsequent entry by the offset ammount.  For a query that returns 1,2,3 an offset of 1 should return 2,3,4.
+
+Offsets are to be defined as the singular `offset=` followed by an integer.
+
+Example use:
+
+* http://example.gc.ca/api/dataset?limit=25&offset=75
+    * For row is base 1 rows 76 through 100 should be returned
+
+#### Pages
+
+Much like offets defined above `page=` is an offset incremtented by the `limit=` argument.  If `limit=` is set to 25 and `page=` is set to 2 the total offset is 50, if the `page=` is set to 3 the total offset is 150.
+
+Example use:
+
+* http://example.gc.ca/api/dataset?limit=25&page=3
+    * For row is base 1 rows 76 through 100 should be returned
+
+#### Cursor
+
+`cursor=` is an offset with a value based on the sort order of results returned.
+
+Use `cursor=` to reliably iterate over all results without risk of skipping or receiving duplicate rows/objects due to insertions/deletions happening at the same time.
+
+The string value use with `cursor=` is returned in the metadata of each response when any rows/objects are returned.
+Typically it is a single value copied from the last row/object, and could be a date, name, internal id or any other sortable type.
+
+Example use:
+* http://example.gc.ca/api/dataset?limit=25&cursor=20130101.010101
+    * For 25 rows following the row containing the sort order value "20130101.010101"
+
+#### Metadata
+
+Information relevant to record limits, offsets and indexes should also be included as described in the example resonse as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
+
+    {
+        "metadata": {
+            "resultset": {
+                "count": 25,
+                "limit": 25,
+                "page": 3,
+                "offset": 75,
+                "cursor": "sam100890032"
+            }
+        },
+        "results": [...]
+    }
+
+    {
+        "metadata": {
+            "resultset": {
+                "count": 100,
+                "limit": 100,
+                "page": 2,
+                "offset": 200,
+                "cursor": "Smith, John"
+            }
+        },
+        "results": [...]
+    }
+
+    {
+        "metadata": {
+            "resultset": {
+                "count": 18,
+                "limit": 25,
+                "cursor": "20130101.010101"
+            }
+        },
+        "results": [...]
+    }
+
 ### Structured Error Handling
 
 Although errors can be represented by HTTP status code alone structured error handling improves the ability to resolve issues for both consumer and maintainer.
