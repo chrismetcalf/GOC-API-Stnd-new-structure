@@ -107,6 +107,7 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 ### URI Structure
 
 ### Output
+#### Metadata
 #### Minimum Formats
 #### Official Languages
 
@@ -160,8 +161,6 @@ Language fields are returned as objects with their language as the only key:
     }
 
 Non-language fields must not be different when the same resource is retrieved in both languages.
-
-#### Metadata
 
 ### Documentation
 
@@ -301,6 +300,19 @@ Where possible the following codes should be used in the following circumstances
 
 ## Best Practices
 ### Responses
+
+Response design is heavily dictated by data structure but there are better practices and more pitfalls to avoid.
+
+* No values in keys
+    * Good, `{ "name" : "Bogart", "breed": "Bulldog" }`
+    * Bad, `{ "Bogart": "bulldog" }`
+* No internal-specific names (e.g. "node" and "taxonomy term")
+    * Good `{ "dog_id": 12345 }`
+    * Bad `{ "did": 12345 }`
+* Metadata should only contain direct properties of the response set, not properties of the members of the response set
+    * Good, `metadata: { "count": 3, "next_dog": 1237 }`
+    * Bad, `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
+
 #### Values in Keys
 #### Internal Specific Keys
 
