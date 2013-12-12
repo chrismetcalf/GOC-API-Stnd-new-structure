@@ -239,7 +239,9 @@ Information relevant to record limits, offsets and indexes should also be includ
     },
     ...
 }
+`
 
+`
 {
     "metadata": {
         "resultset": {
@@ -252,7 +254,9 @@ Information relevant to record limits, offsets and indexes should also be includ
     },
     ...
 }
+`
 
+`
 {
     "metadata": {
         "resultset": {
@@ -320,8 +324,8 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 * Limit endpoint changes unless neccesary
 * Create endpoint for needs by the need over numerical where appropraite ( e.g.: hardware dependance, client needs )
 * Versions should be integers not decimal numbers to avoid galloping endpoints and prefixed with ‘v’ for intuitive identification
-    * Good: v1, v2, v3
-    * Bad: v-1.1, v1.2, 1.3
+    * Good: `v1, v2, v3`
+    * Bad: `v-1.1, v1.2, 1.3`
 * If numerical major version numbers are required if a change can produce changes in logic
 * If numerical maintain at least one version back
 
@@ -332,22 +336,22 @@ Response design is heavily dictated by data structure but there are better pract
 
 #### Values in Keys
 
-* Good, `{ "name" : "Bogart", "breed": "Bulldog" }`
-* Bad, `{ "Bogart": "bulldog" }`
+* Good: `{ "name" : "Bogart", "breed": "Bulldog" }`
+* Bad: `{ "Bogart": "bulldog" }`
 
 #### Internal Specific Keys
 
 Avoid "node" and "taxonomy term" in your data.
 
-* Good `{ "dog_id": 12345 }`
-* Bad `{ "did": 12345 }`
+* Good: `{ "dog_id": 12345 }`
+* Bad: `{ "did": 12345 }`
 
 #### Metadata is dataset properties
 
 Metadata should only contain direct properties of the response set, not properties of the members of the response set
 
-* Good, `metadata: { "count": 3, "next_dog": 1237 }`
-* Bad, `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
+* Good: `metadata: { "count": 3, "next_dog": 1237 }`
+* Bad: `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
 
 ### Callbacks
 
