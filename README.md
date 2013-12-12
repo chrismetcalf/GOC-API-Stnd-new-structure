@@ -106,11 +106,61 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 
 ### URI Structure
 
-
-
 ### Output
 #### Minimum Formats
 #### Official Languages
+
+`TODO: Review the following segment and how it works in the "Best Practice" section
+======
+Best practice: Implement one or both of the following methods for including multilingual data in responses.
+`
+
+`TODO: Review the language in this block, it's close but a different author.  Revisions will fix this.`
+
+##### Single endpoint
+
+Recommended for writable APIs, for APIs returning many non-language fields and for APIs supporting more than the two official languages.
+
+All languages are returned in a nested manner with BCP-47 language codes used as keys.
+
+    {
+        "title": {
+             "fr": "Levé LiDAR aux environs du Réserve de biosphere",
+             "en": "Biosphere Reserve LiDAR Survey"
+        },
+        "resource_count": 5,
+        "state": "active",
+        ...
+    }
+
+Fields with values chosen from a limited set, such as "state" above, are represented with a single value.
+
+##### Multiple language endpoints
+
+Recommended for APIs returning many fields containing language content.
+
+Create two APIs with the language included in the API URL.
+
+Example: the same resource with language fields returned in only a single language is available from:
+
+* http://example.gc.ca/en/api/resource/[id]
+* http://example.gc.ca/fr/api/resource/[id]
+
+The domain and API URLs must match exactly so that callers can retrieve the corresponding results in the other language easily.  If French and English content is served from separate domains then both APIs must be available on both domains.
+
+Language fields are returned as objects with their language as the only key:
+
+    {
+        "title": {
+             "fr": "Levé LiDAR aux environs du Réserve de biosphere",
+        },
+        "resource_count": 5,
+        "state": "active",
+        ...
+    }
+
+Non-language fields must not be different when the same resource is retrieved in both languages.
+
 #### Metadata
 
 ### Documentation
@@ -163,8 +213,7 @@ Example use:
 
 Use `cursor=` to reliably iterate over all results without risk of skipping or receiving duplicate rows/objects due to insertions/deletions happening at the same time.
 
-The string value use with `cursor=` is returned in the metadata of each response when any rows/objects are returned.
-Typically it is a single value copied from the last row/object, and could be a date, name, internal id or any other sortable type.
+The string value use with `cursor=` is returned in the metadata of each response when any rows/objects are returned.  Typically it is a single value copied from the last row/object, and could be a date, name, internal id or any other sortable type.
 
 Example use:
 * http://example.gc.ca/api/dataset?limit=25&cursor=20130101.010101
