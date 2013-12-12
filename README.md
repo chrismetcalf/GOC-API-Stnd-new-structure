@@ -38,6 +38,7 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 		* [Responses](#responses)
 			* [Values in Keys](#values-in-keys)
 			* [Internal Specific Keys](#internal-specific-keys)
+			* [Metadata is dataset properties](#metadata-is-dataset-properties)
 		* [Callbacks](#callbacks)
 * [Examples](#examples)
 
@@ -325,18 +326,24 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 
 Response design is heavily dictated by data structure but there are better practices and more pitfalls to avoid.
 
-* No values in keys
+#### Values in Keys
+
     * Good, `{ "name" : "Bogart", "breed": "Bulldog" }`
     * Bad, `{ "Bogart": "bulldog" }`
-* No internal-specific names (e.g. "node" and "taxonomy term")
+
+#### Internal Specific Keys
+
+Avoid "node" and "taxonomy term" in your data.
+
     * Good `{ "dog_id": 12345 }`
     * Bad `{ "did": 12345 }`
-* Metadata should only contain direct properties of the response set, not properties of the members of the response set
+
+#### Metadata is dataset properties
+
+Metadata should only contain direct properties of the response set, not properties of the members of the response set
+
     * Good, `metadata: { "count": 3, "next_dog": 1237 }`
     * Bad, `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
-
-#### Values in Keys
-#### Internal Specific Keys
 
 ### Callbacks
 
