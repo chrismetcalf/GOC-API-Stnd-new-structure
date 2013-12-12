@@ -111,8 +111,7 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 #### Minimum Formats
 #### Official Languages
 
-`TODO: Review the following segment and how it works in the "Best Practice" section
-======
+`TODO: Review the following segment and how it works in the "Best Practice" section.
 Best practice: Implement one or both of the following methods for including multilingual data in responses.
 `
 
