@@ -134,7 +134,7 @@ All languages are returned in a nested manner with BCP-47 language codes used as
          "fr": "Levé LiDAR aux environs du Réserve de biosphere",
          "en": "Biosphere Reserve LiDAR Survey"
     },
-    "resource_count": 5,
+    "resourceCount": 5,
     "state": "active",
     ...
 }
@@ -162,7 +162,7 @@ Language fields are returned as objects with their language as the only key:
     "title": {
          "fr": "Levé LiDAR aux environs du Réserve de biosphere",
     },
-    "resource_count": 5,
+    "resourceCount": 5,
     "state": "active",
     ...
 }
@@ -333,6 +333,24 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 * If numerical maintain at least one version back
 
 ## Best Practices
+
+### Human readble / intuitive keys
+
+The easier your data is to read and understand the more likely the data is to be used and correctly.
+
+* Good: `{ "name" : "Bogart", "breed": "Bulldog" }`
+* Bad: `{ "nm": "Bogart", "brd": "Bulldog" }`
+
+### camelCase vs snake_case
+
+* One of the required formats, JSON, prefers camelCase.
+* Standard delivery platforms and languages prefer camelCase ( PHP, JavaScript ).
+* Camel case can be typed without use of a special character.
+
+Neither is mandatory or recomended for any functional advantage.  If there is no reason to do otherwise camel case is prefered.
+
+`TODO: This felt more rediculous the longer I typed, I prefer snake_case for readablility`
+
 ### Responses
 
 Response design is heavily dictated by data structure but there are better practices and more pitfalls to avoid.
@@ -346,14 +364,14 @@ Response design is heavily dictated by data structure but there are better pract
 
 Avoid "node" and "taxonomy term" in your data.
 
-* Good: `{ "dog_id": 12345 }`
+* Good: `{ "dogId": 12345 }`
 * Bad: `{ "did": 12345 }`
 
 #### Metadata is dataset properties
 
 Metadata should only contain direct properties of the response set, not properties of the members of the response set
 
-* Good: `metadata: { "count": 3, "next_dog": 1237 }`
+* Good: `metadata: { "count": 3, "nextDog": 1237 }`
 * Bad: `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
 
 ### Clean URLs
