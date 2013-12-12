@@ -124,15 +124,17 @@ Recommended for writable APIs, for APIs returning many non-language fields and f
 
 All languages are returned in a nested manner with BCP-47 language codes used as keys.
 
-    {
-        "title": {
-             "fr": "Levé LiDAR aux environs du Réserve de biosphere",
-             "en": "Biosphere Reserve LiDAR Survey"
-        },
-        "resource_count": 5,
-        "state": "active",
-        ...
-    }
+`
+{
+    "title": {
+         "fr": "Levé LiDAR aux environs du Réserve de biosphere",
+         "en": "Biosphere Reserve LiDAR Survey"
+    },
+    "resource_count": 5,
+    "state": "active",
+    ...
+}
+`
 
 Fields with values chosen from a limited set, such as "state" above, are represented with a single value.
 
@@ -151,14 +153,16 @@ The domain and API URLs must match exactly so that callers can retrieve the corr
 
 Language fields are returned as objects with their language as the only key:
 
-    {
-        "title": {
-             "fr": "Levé LiDAR aux environs du Réserve de biosphere",
-        },
-        "resource_count": 5,
-        "state": "active",
-        ...
-    }
+`
+{
+    "title": {
+         "fr": "Levé LiDAR aux environs du Réserve de biosphere",
+    },
+    "resource_count": 5,
+    "state": "active",
+    ...
+}
+`
 
 Non-language fields must not be different when the same resource is retrieved in both languages.
 
@@ -223,42 +227,42 @@ Example use:
 Information relevant to record limits, offsets and indexes should also be included as described in the example resonse as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
 
 `
-    {
-        "metadata": {
-            "resultset": {
-                "count": 25,
-                "limit": 25,
-                "page": 3,
-                "offset": 75,
-                "cursor": "sam100890032"
-            }
-        },
-        ...
-    }
+{
+    "metadata": {
+        "resultset": {
+            "count": 25,
+            "limit": 25,
+            "page": 3,
+            "offset": 75,
+            "cursor": "sam100890032"
+        }
+    },
+    ...
+}
 
-    {
-        "metadata": {
-            "resultset": {
-                "count": 100,
-                "limit": 100,
-                "page": 2,
-                "offset": 200,
-                "cursor": "Smith, John"
-            }
-        },
-        ...
-    }
+{
+    "metadata": {
+        "resultset": {
+            "count": 100,
+            "limit": 100,
+            "page": 2,
+            "offset": 200,
+            "cursor": "Smith, John"
+        }
+    },
+    ...
+}
 
-    {
-        "metadata": {
-            "resultset": {
-                "count": 18,
-                "limit": 25,
-                "cursor": "20130101.010101"
-            }
-        },
-        ...
-    }
+{
+    "metadata": {
+        "resultset": {
+            "count": 18,
+            "limit": 25,
+            "cursor": "20130101.010101"
+        }
+    },
+    ...
+}
 `
 
 ### Structured Error Handling
@@ -276,14 +280,14 @@ Research into common practice provides the following error structure:
 In JSON format
 
 `
-    {
-        "status" : "400",
-        "developerMessage" : "Verbose, plain language description of the problem. Provide developers
-        suggestions about how to solve their problems here",
-        "userMessage" : "This is a message that can be passed along to end-users, if needed.",
-        "errorCode" : "444444",
-        "more info" : "http://example.gc.ca/developer/path/to/help/for/444444",
-    }
+{
+    "status" : "400",
+    "developerMessage" : "Verbose, plain language description of the problem. Provide developers
+    suggestions about how to solve their problems here",
+    "userMessage" : "This is a message that can be passed along to end-users, if needed.",
+    "errorCode" : "444444",
+    "more info" : "http://example.gc.ca/developer/path/to/help/for/444444",
+}
 `
 
 The three base states to recognize are success, improper request ( client error ) and internal server error ( API error ).  These better defined by the following HTTP Status codes:
@@ -303,12 +307,12 @@ Where possible the following codes should be used in the following circumstances
 Versioning, from a RESTful approach, is an anti-pattern but often neccesary by development practices.  The only requierment in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
 
 `
-    {
-        "metadata": {
-        	"version": "3.1.23a"
-        },
-        ...
-    }
+{
+    "metadata": {
+    	"version": "3.1.23a"
+    },
+    ...
+}
 `
 
 If an API is to be versioned interoperability and consistency is greatly aided by the following:
@@ -328,22 +332,22 @@ Response design is heavily dictated by data structure but there are better pract
 
 #### Values in Keys
 
-    * Good, `{ "name" : "Bogart", "breed": "Bulldog" }`
-    * Bad, `{ "Bogart": "bulldog" }`
+* Good, `{ "name" : "Bogart", "breed": "Bulldog" }`
+* Bad, `{ "Bogart": "bulldog" }`
 
 #### Internal Specific Keys
 
 Avoid "node" and "taxonomy term" in your data.
 
-    * Good `{ "dog_id": 12345 }`
-    * Bad `{ "did": 12345 }`
+* Good `{ "dog_id": 12345 }`
+* Bad `{ "did": 12345 }`
 
 #### Metadata is dataset properties
 
 Metadata should only contain direct properties of the response set, not properties of the members of the response set
 
-    * Good, `metadata: { "count": 3, "next_dog": 1237 }`
-    * Bad, `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
+* Good, `metadata: { "count": 3, "next_dog": 1237 }`
+* Bad, `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
 
 ### Callbacks
 
