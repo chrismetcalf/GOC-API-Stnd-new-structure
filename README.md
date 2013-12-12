@@ -39,6 +39,7 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 			* [Values in Keys](#values-in-keys)
 			* [Internal Specific Keys](#internal-specific-keys)
 			* [Metadata is dataset properties](#metadata-is-dataset-properties)
+		* [Clean URLs](#clean-urls)
 		* [Callbacks](#callbacks)
 * [Examples](#examples)
 
@@ -355,6 +356,7 @@ Metadata should only contain direct properties of the response set, not properti
 * Good: `metadata: { "count": 3, "next_dog": 1237 }`
 * Bad: `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
 
+### Clean URLs
 ### Callbacks
 
 # Examples
