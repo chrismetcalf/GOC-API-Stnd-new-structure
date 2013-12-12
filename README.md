@@ -226,6 +226,8 @@ Example use:
 
 Information relevant to record limits, offsets and indexes should also be included as described in the example resonse as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
 
+`TODO: Find a better word for ruleset than what we have below`
+
 `
 {
     "metadata": {
