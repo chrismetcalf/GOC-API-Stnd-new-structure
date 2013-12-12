@@ -112,11 +112,14 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 #### Minimum Formats
 #### Official Languages
 
-`TODO: Review the following segment and how it works in the "Best Practice" section.
+```
+TODO: Review the following segment and how it works in the "Best Practice" section.
 Best practice: Implement one or both of the following methods for including multilingual data in responses.
-`
+```
 
-`TODO: Review the language in this block, it's close but a different author.  Revisions will fix this.`
+```
+TODO: Review the language in this block, it's close but a different author.  Revisions will fix this.
+```
 
 ##### Single endpoint
 
@@ -124,7 +127,7 @@ Recommended for writable APIs, for APIs returning many non-language fields and f
 
 All languages are returned in a nested manner with BCP-47 language codes used as keys.
 
-`
+```
 {
     "title": {
          "fr": "Levé LiDAR aux environs du Réserve de biosphere",
@@ -134,7 +137,7 @@ All languages are returned in a nested manner with BCP-47 language codes used as
     "state": "active",
     ...
 }
-`
+```
 
 Fields with values chosen from a limited set, such as "state" above, are represented with a single value.
 
@@ -153,7 +156,7 @@ The domain and API URLs must match exactly so that callers can retrieve the corr
 
 Language fields are returned as objects with their language as the only key:
 
-`
+```
 {
     "title": {
          "fr": "Levé LiDAR aux environs du Réserve de biosphere",
@@ -162,7 +165,7 @@ Language fields are returned as objects with their language as the only key:
     "state": "active",
     ...
 }
-`
+```
 
 Non-language fields must not be different when the same resource is retrieved in both languages.
 
@@ -228,7 +231,7 @@ Information relevant to record limits, offsets and indexes should also be includ
 
 `TODO: Find a better word for ruleset than what we have below`
 
-`
+```
 {
     "metadata": {
         "resultset": {
@@ -241,9 +244,7 @@ Information relevant to record limits, offsets and indexes should also be includ
     },
     ...
 }
-`
 
-`
 {
     "metadata": {
         "resultset": {
@@ -256,9 +257,8 @@ Information relevant to record limits, offsets and indexes should also be includ
     },
     ...
 }
-`
 
-`
+
 {
     "metadata": {
         "resultset": {
@@ -269,7 +269,7 @@ Information relevant to record limits, offsets and indexes should also be includ
     },
     ...
 }
-`
+```
 
 ### Structured Error Handling
 
@@ -285,7 +285,7 @@ Research into common practice provides the following error structure:
 
 In JSON format
 
-`
+```
 {
     "status" : "400",
     "developerMessage" : "Verbose, plain language description of the problem. Provide developers
@@ -294,7 +294,7 @@ In JSON format
     "errorCode" : "444444",
     "more info" : "http://example.gc.ca/developer/path/to/help/for/444444",
 }
-`
+```
 
 The three base states to recognize are success, improper request ( client error ) and internal server error ( API error ).  These better defined by the following HTTP Status codes:
 
@@ -312,14 +312,14 @@ Where possible the following codes should be used in the following circumstances
 
 Versioning, from a RESTful approach, is an anti-pattern but often neccesary by development practices.  The only requierment in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
 
-`
+```
 {
     "metadata": {
     	"version": "3.1.23a"
     },
     ...
 }
-`
+```
 
 If an API is to be versioned interoperability and consistency is greatly aided by the following:
 
