@@ -128,7 +128,7 @@ Recommended for writable APIs, for APIs returning many non-language fields and f
 
 All languages are returned in a nested manner with BCP-47 language codes used as keys.
 
-```
+```JSON
 {
     "title": {
          "fr": "Levé LiDAR aux environs du Réserve de biosphere",
@@ -157,7 +157,7 @@ The domain and API URLs must match exactly so that callers can retrieve the corr
 
 Language fields are returned as objects with their language as the only key:
 
-```
+```JSON
 {
     "title": {
          "fr": "Levé LiDAR aux environs du Réserve de biosphere",
@@ -232,7 +232,7 @@ Information relevant to record limits, offsets and indexes should also be includ
 
 `TODO: Find a better word for ruleset than what we have below`
 
-```
+```JSON
 {
     "metadata": {
         "resultset": {
@@ -286,7 +286,7 @@ Research into common practice provides the following error structure:
 
 In JSON format
 
-```
+```JSON
 {
     "status" : "400",
     "developerMessage" : "Verbose, plain language description of the problem. Provide developers
@@ -313,7 +313,7 @@ Where possible the following codes should be used in the following circumstances
 
 Versioning, from a RESTful approach, is an anti-pattern but often neccesary by development practices.  The only requierment in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
 
-```
+```JSON
 {
     "metadata": {
     	"version": "3.1.23a"
