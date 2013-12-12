@@ -222,6 +222,7 @@ Example use:
 
 Information relevant to record limits, offsets and indexes should also be included as described in the example resonse as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
 
+`
     {
         "metadata": {
             "resultset": {
@@ -232,7 +233,7 @@ Information relevant to record limits, offsets and indexes should also be includ
                 "cursor": "sam100890032"
             }
         },
-        "results": [...]
+        ...
     }
 
     {
@@ -245,7 +246,7 @@ Information relevant to record limits, offsets and indexes should also be includ
                 "cursor": "Smith, John"
             }
         },
-        "results": [...]
+        ...
     }
 
     {
@@ -256,8 +257,9 @@ Information relevant to record limits, offsets and indexes should also be includ
                 "cursor": "20130101.010101"
             }
         },
-        "results": [...]
+        ...
     }
+`
 
 ### Structured Error Handling
 
@@ -297,6 +299,27 @@ Where possible the following codes should be used in the following circumstances
 ### URI structure filtering
 ### URI argument filtering
 ### Versioning
+
+Versioning, from a RESTful approach, is an anti-pattern but often neccesary by development practices.  The only requierment in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
+
+`
+    {
+        "metadata": {
+        	"version": "3.1.23a"
+        },
+        ...
+    }
+`
+
+If an API is to be versioned interoperability and consistency is greatly aided by the following:
+
+* Limit endpoint changes unless neccesary
+* Create endpoint for needs by the need over numerical where appropraite ( e.g.: hardware dependance, client needs )
+* Versions should be integers not decimal numbers to avoid galloping endpoints and prefixed with ‘v’ for intuitive identification
+    * Good: v1, v2, v3
+    * Bad: v-1.1, v1.2, 1.3
+* If numerical major version numbers are required if a change can produce changes in logic
+* If numerical maintain at least one version back
 
 ## Best Practices
 ### Responses
