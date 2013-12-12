@@ -120,7 +120,7 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 ## Optional features
 ### Dataset segmenting
 
-Limits are nearly always mandatory, only limited size datasets are safe to to implement with a default and maximum limit.  These elements are to be added where possible and relevant.  A second, but no less important, consideration for the client creates requierments such as moblie device limitations and dataset size.
+Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit.  These elements are strongly recomended where possible and relevant.  A second, but no less important, consideration for the client creates requierments such as moblie device limitations and dataset size.
 
 #### Limits
 
