@@ -35,6 +35,8 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 		* [URI argument filtering](#uri-argument-filtering)
 		* [Versioning](#versioning)
 	* [Best Practices](#best-practices)
+		* [Human readble intuitive keys](#human-readble-intuitive-keys)
+		* [camelCase or snake_case](#camelcase_or_snake_case)
 		* [Responses](#responses)
 			* [Values in Keys](#values-in-keys)
 			* [Internal Specific Keys](#internal-specific-keys)
@@ -334,14 +336,14 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 
 ## Best Practices
 
-### Human readble / intuitive keys
+### Human readble intuitive keys
 
 The easier your data is to read and understand the more likely the data is to be used and correctly.
 
 * Good: `{ "name" : "Bogart", "breed": "Bulldog" }`
 * Bad: `{ "nm": "Bogart", "brd": "Bulldog" }`
 
-### camelCase vs snake_case
+### camelCase or snake_case
 
 * One of the required formats, JSON, prefers camelCase.
 * Standard delivery platforms and languages prefer camelCase ( PHP, JavaScript ).
