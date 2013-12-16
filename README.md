@@ -122,7 +122,7 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 
 ### Output
 
-`TODO: Describe output'
+`TODO: Describe output`
 
 #### Metadata
 
