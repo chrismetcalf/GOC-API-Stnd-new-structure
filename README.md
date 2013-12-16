@@ -48,7 +48,7 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 ## This document
 
 ### Goal
-The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consisten and up to the highest standards by defining a base level of delivery and describing expansion where possible.  The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
+The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consistent and up to the highest standards by defining a base level of delivery and describing expansion where possible.  The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
 
 ```
 TODO: Merge the following
@@ -57,7 +57,7 @@ This document provides a standard along with examples for Government of Canada W
 ````
 
 ### Structure
-This document describes API requierments by priority:
+This document describes API requirements by priority:
 
 * Minimum delivery
 * Optional features
@@ -65,7 +65,7 @@ This document describes API requierments by priority:
 * Examples
 
 ### Style Guide
-For the remainder of this document code, arguments and other undefiend technical statements will be `code fenced` as to be easily distinguishable from standard text.
+For the remainder of this document code, arguments and other undefined technical statements will be `code fenced` as to be easily distinguishable from standard text.
 
 Arguments text will be used as follows:
 * Arguments stated as a header will be followed by a colon ':' as `argument:`
@@ -79,14 +79,14 @@ Draft comments are to be bracked with the following.
 ## Web API Implementation
 Web APIs in the GoC are to be RESTful as described by Roy Thomas Fielding's dissertation "Architectural Styles and the Design of Network-based Software Architectures" (2000) adapted to mandated minimums for the GoC and design choices in support of Web Interoperability.
 
-The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requierments or options not described in this document may be implemented at the discression of the API owner so long as the minimums and delivery standard of optional features are met.
+The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requirements or options not described in this document may be implemented at the discretion of the API owner so long as the minimums and delivery standard of optional features are met.
 
 ### Minimum delivery
 
 `TODO: Describe minimum delivery`
 
 #### HTTP Header
-Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol ( HTTP ).  Although not explicitly prescribed by RESTful design header negotation is a widely used component in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a devide in the theory of proper implementation.
+Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol ( HTTP ).  Although not explicitly prescribed by RESTful design header negotiation is a widely used component in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
 
 The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request ( e.g.: `Accept-Charset:`, `Accept-Encoding:` ) or response ( e.g.: `Content-Language:`, `Content-Length:`  ) often aid in delivery and efficiency where appropriate.
 
@@ -220,13 +220,13 @@ Non-language fields must not be different when the same resource is retrieved in
 
 ### Dataset segmenting
 
-Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit.  These elements are strongly recomended where possible and relevant.  A second, but no less important, consideration for the client creates requierments such as moblie device limitations and dataset size.
+Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit.  These elements are strongly recomendeded where possible and relevant.  A second, but no less important, consideration for the client creates requirements such as mobile device limitations and dataset size.
 
 #### Limits
 
 * If no limit is specified, return results with a default limit.
     * Sanity check to a reasonable return size
-    * Sanity check to a reaonsable execution time
+    * Sanity check to a reasonable execution time
     * For small datasets limits may exceed row count
 
 * Limits are row / object limits
@@ -239,7 +239,7 @@ Limits are to be defined as the singular `limit=` followed by an integer.
 
 Offsets apply to the structured data returned from the API distinct from internal indexing in the data.  For the purpose of explanation we'll assume rows/objects return are numbered 1, 2, 3, 4, 5 to the limit.
 
-The general logic is to shift to what would be the subsequent entry by the offset ammount.  For a query that returns 1,2,3 an offset of 1 should return 2,3,4.
+The general logic is to shift to what would be the subsequent entry by the offset amount.  For a query that returns 1,2,3 an offset of 1 should return 2,3,4.
 
 Offsets are to be defined as the singular `offset=` followed by an integer.
 
@@ -250,7 +250,7 @@ Example use:
 
 #### Pages
 
-Much like offets defined above `page=` is an offset incremtented by the `limit=` argument.  If `limit=` is set to 25 and `page=` is set to 2 the total offset is 50, if the `page=` is set to 3 the total offset is 150.
+Much like offsets defined above `page=` is an offset incremented by the `limit=` argument.  If `limit=` is set to 25 and `page=` is set to 2 the total offset is 50, if the `page=` is set to 3 the total offset is 150.
 
 Example use:
 
@@ -271,7 +271,7 @@ Example use:
 
 #### Dataset segmenting metadata
 
-Information relevant to record limits, offsets and indexes should also be included as described in the example resonse as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
+Information relevant to record limits, offsets and indexes should also be included as described in the example response as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
 
 `TODO: Find a better word for ruleset than what we have below`
 
@@ -348,13 +348,13 @@ The three base states to recognize are success, improper request ( client error 
 
 Where possible the following codes should be used in the following circumstances:
 
-`TODO: Add the additional errors sugested including 404, 304 and others`
+`TODO: Add the additional errors suggested including 404, 304 and others`
 
 ### URI argument filtering
 
 Although not mandatory arguments are likely in dynamic and large datasets and follow standard `query=` logic.
 
-Where required for compatability or to satisfy client requierments query arguments can be used to override header variables such as `Accept:` or `Accept-Language:`.
+Where required for compatibility or to satisfy client requirements query arguments can be used to override header variables such as `Accept:` or `Accept-Language:`.
 
 `TODO: Describe how to describe format`
 
@@ -362,7 +362,7 @@ URL arguments are defined by IETF RFC2396 Section 3 defined, through the documen
 
 ### URI structure filtering
 
-URI based filtering, or Clean URLs, can be used to specify arguments to the API in the resource path.  Generally an asthetic feature Clean URIs aid in caching and general adoption of an API.
+URI based filtering, or Clean URLs, can be used to specify arguments to the API in the resource path.  Generally an aesthetic feature Clean URIs aid in caching and general adoption of an API.
 
 Caching is best served when arguments, or URIs in general, are consistently represented.  When encoding arguments in the URI be consistent in the ordering and value representation preferably in data logical order.
 
@@ -380,7 +380,7 @@ Clean URLs can be achieved by various means such as scripting language or http s
 
 ### Versioning
 
-Versioning, from a RESTful approach, is an anti-pattern but often neccesary by development practices.  The only requierment in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
+Versioning, from a RESTful approach, is an anti-pattern but often necessary by development practices.  The only requirement in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
 
 ```JSON
 {
@@ -393,8 +393,8 @@ Versioning, from a RESTful approach, is an anti-pattern but often neccesary by d
 
 If an API is to be versioned interoperability and consistency is greatly aided by the following:
 
-* Limit endpoint changes unless neccesary
-* Create endpoint for needs by the need over numerical where appropraite ( e.g.: hardware dependance, client needs )
+* Limit endpoint changes unless necessary
+* Create endpoint for needs by the need over numerical where appropriate ( e.g.: hardware dependance, client needs )
 * Versions should be integers not decimal numbers to avoid galloping endpoints and prefixed with ‘v’ for intuitive identification
     * Good: `v1, v2, v3`
     * Bad: `v-1.1, v1.2, 1.3`
@@ -405,7 +405,7 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 
 `TODO: Describe best practices`
 
-### Human readble intuitive keys
+### Human readable intuitive keys
 
 The easier your data is to read and understand the more likely the data is to be used and correctly.
 
@@ -418,9 +418,9 @@ The easier your data is to read and understand the more likely the data is to be
 * Standard delivery platforms and languages prefer camelCase ( PHP, JavaScript ).
 * Camel case can be typed without use of a special character.
 
-Neither is mandatory or recomended for any functional advantage.  If there is no reason to do otherwise camel case is prefered.
+Neither is mandatory or recommended for any functional advantage.  If there is no reason to do otherwise camel case is preferred.
 
-`TODO: This felt more rediculous the longer I typed, I prefer snake_case for readablility`
+`TODO: This felt more ridiculous the longer I typed, I prefer snake_case for readability`
 
 ### Responses
 
