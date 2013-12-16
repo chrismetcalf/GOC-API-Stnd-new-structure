@@ -7,7 +7,6 @@ Working requirements for Government of Canada (GoC) Web Application Programming 
 Presently a draft from the TBS Web Interoperability Working Group with the intent to deliver a first working draft by the next Web Managers Council.  RFC to [WET - GC Web API Standards](https://github.com/wet-boew/wet-boew-api-standards).
 </span>
 
-This document provides a standard along with examples for Government of Canada Web APIs, encouraging consistency, maintainability, and best practices across applications. Government of Canada APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
 
 * [This Document](#this-document)
 	* [Goal](#goal)
@@ -43,13 +42,19 @@ This document provides a standard along with examples for Government of Canada W
 			* [Values in Keys](#values-in-keys)
 			* [Internal Specific Keys](#internal-specific-keys)
 			* [Metadata is dataset properties](#metadata-is-dataset-properties)
-		* [Clean URLs](#clean-urls)
 		* [Callbacks](#callbacks)
 * [Examples](#examples)
 
 ## This document
+
 ### Goal
 The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consisten and up to the highest standards by defining a base level of delivery and describing expansion where possible.  The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
+
+```
+TODO: Merge the following
+
+This document provides a standard along with examples for Government of Canada Web APIs, encouraging consistency, maintainability, and best practices across applications. Government of Canada APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
+````
 
 ### Structure
 This document describes API requierments by priority:
@@ -77,6 +82,9 @@ Web APIs in the GoC are to be RESTful as described by Roy Thomas Fielding's diss
 The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requierments or options not described in this document may be implemented at the discression of the API owner so long as the minimums and delivery standard of optional features are met.
 
 ### Minimum delivery
+
+`TODO: Describe minimum delivery`
+
 #### HTTP Header
 Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol ( HTTP ).  Although not explicitly prescribed by RESTful design header negotation is a widely used component in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a devide in the theory of proper implementation.
 
@@ -113,7 +121,13 @@ HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http:
 ### URI Structure
 
 ### Output
+
+`TODO: Describe output'
+
 #### Metadata
+
+`TODO: Describe metadata`
+
 #### Minimum Formats
 
 ```
@@ -194,11 +208,16 @@ Non-language fields must not be different when the same resource is retrieved in
 
 ### Documentation
 
+`TODO: Insert when sorted`
+
 ### Registration
 
-( must be described. )
+`TODO: Must be described`
 
 ## Optional features
+
+`TODO: Describe optional features`
+
 ### Dataset segmenting
 
 Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit.  These elements are strongly recomended where possible and relevant.  A second, but no less important, consideration for the client creates requierments such as moblie device limitations and dataset size.
@@ -384,6 +403,8 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 
 ## Best Practices
 
+`TODO: Describe best practices`
+
 ### Human readble intuitive keys
 
 The easier your data is to read and understand the more likely the data is to be used and correctly.
@@ -424,7 +445,6 @@ Metadata should only contain direct properties of the response set, not properti
 * Good: `metadata: { "count": 3, "nextDog": 1237 }`
 * Bad: `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
 
-### Clean URLs
 ### Callbacks
 
 # Examples
