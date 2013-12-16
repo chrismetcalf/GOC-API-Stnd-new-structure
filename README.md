@@ -7,6 +7,8 @@ Working requirements for Government of Canada (GoC) Web Application Programming 
 Presently a draft from the TBS Web Interoperability Working Group with the intent to deliver a first working draft by the next Web Managers Council.  RFC to [WET - GC Web API Standards](https://github.com/wet-boew/wet-boew-api-standards).
 </span>
 
+This document provides a standard along with examples for Government of Canada Web APIs, encouraging consistency, maintainability, and best practices across applications. Government of Canada APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
+
 * [This Document](#this-document)
 	* [Goal](#goal)
 	* [Structure](#structure)
@@ -31,8 +33,8 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 			* [Pages](#pages)
 			* [Dataset segmenting metadata](#dataset-segmenting-metadata)
 		* [Structured Error Handling](#structured-error-handling)
-		* [URI structure filtering](#uri-structure-filtering)
-		* [URI argument filtering](#uri-argument-filtering)
+        * [URI argument filtering](#uri-argument-filtering)
+        * [URI structure filtering](#uri-structure-filtering)
 		* [Versioning](#versioning)
 	* [Best Practices](#best-practices)
 		* [Human readble intuitive keys](#human-readble-intuitive-keys)
@@ -194,6 +196,8 @@ Non-language fields must not be different when the same resource is retrieved in
 
 ### Registration
 
+( must be described. )
+
 ## Optional features
 ### Dataset segmenting
 
@@ -327,8 +331,34 @@ Where possible the following codes should be used in the following circumstances
 
 `TODO: Add the additional errors sugested including 404, 304 and others`
 
-### URI structure filtering
 ### URI argument filtering
+
+Although not mandatory arguments are likely in dynamic and large datasets and follow standard `query=` logic.
+
+Where required for compatability or to satisfy client requierments query arguments can be used to override header variables such as `Accept:` or `Accept-Language:`.
+
+`TODO: Describe how to describe format`
+
+URL arguments are defined by IETF RFC2396 Section 3 defined, through the document, as "query" ( http://www.ietf.org/rfc/rfc2396.txt )
+
+### URI structure filtering
+
+URI based filtering, or Clean URLs, can be used to specify arguments to the API in the resource path.  Generally an asthetic feature Clean URIs aid in caching and general adoption of an API.
+
+Caching is best served when arguments, or URIs in general, are consistently represented.  When encoding arguments in the URI be consistent in the ordering and value representation preferably in data logical order.
+
+Formats in Clean URL are defined as extensions to the virtual file, to define an XML or JSON file would be defined as /path/file.xml and /path/file.json.
+
+An API defined with traditional URL arguments would be converted from:
+
+`http://example.gc.ca/api/resource?argument_one=vale_one&argument_two=value_two&data_layout=listformat=json`
+
+To:
+
+`http://example.gc.ca/api/resource/value_one/value_two/list.list`
+
+Clean URLs can be achieved by various means such as scripting language or http server redirections.
+
 ### Versioning
 
 Versioning, from a RESTful approach, is an anti-pattern but often neccesary by development practices.  The only requierment in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
