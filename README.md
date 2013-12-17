@@ -47,7 +47,7 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 ## This document
 
 ### Goal
-The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consistent and up to the highest standards by defining a base level of delivery and describing expansion where possible.  The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
+The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consistent and up to the highest standards by defining a base level of delivery, describing expansion where possible.  The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
 
 ```
 TODO: Merge the following
@@ -135,7 +135,7 @@ One field is required in the metadata varialble, the date the response was creat
 }
 
 http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4
-
+http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators
 
 #### Minimum Formats
 
@@ -158,29 +158,64 @@ Best practice: Implement one or both of the following methods for including mult
 TODO: Review the language in this block, it's close but a different author.  Revisions will fix this.
 ```
 
-##### Single endpoint
+All English or French content returned as data are to be nested with BCP-47 language codes used as keys.  If the content is unilingual offer the alternate language in metadata.
 
-Recommended for writable APIs, for APIs returning many non-language fields and for APIs supporting more than the two official languages.
-
-All languages are returned in a nested manner with BCP-47 language codes used as keys.
-
+Bilingual
 ```JSON
 {
-    "title": {
-         "fr": "Levé LiDAR aux environs du Réserve de biosphere",
-         "en": "Biosphere Reserve LiDAR Survey"
+    "size": {
+         "fr": "Gros",
+         "en": "Large"
     },
-    "resourceCount": 5,
-    "state": "active",
+    "type": {
+         "fr": "Chien",
+         "en": "Dog"
+    },
     ...
 }
 ```
 
-Fields with values chosen from a limited set, such as "state" above, are represented with a single value.
+French Only
+```JSON
+{
+    metadata: { "en:" : "http://example.gc.ca/..."},
+    "size": {
+         "fr": "Gros"
+    },
+    "type": {
+         "fr": "Chien"
+    },
+    ...
+}
+```
+
+English Only
+```JSON
+{
+    metadata: { "fr:" : "http://exemple.gc.ca/..."},
+    "size": {
+         "en": "Large"
+    },
+    "type": {
+         "en": "Dog"
+    },
+    ...
+}
+```
+
+Bilingual, english and french endpoints must all offer bilingual, french or english results if requested ( e.g.: `Accept-Language:`, query parameters or URI construct )
+
+The calculated language ( e.g.: `Accept-Language:` or query parameters ) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API.
+
+```
+Accept: text/html
+Accept-Language: en
+URL: http://exemple.gc.ca/api/chiens
+```
+
+The scenario above could return english content on the french `http://exemple.gc.ca/api/chiens` page.
 
 ##### Multiple language endpoints
-
-Recommended for APIs returning many fields containing language content.
 
 Create two APIs with the language included in the API URL.
 
@@ -346,17 +381,16 @@ The three base states to recognize are success, improper request ( client error 
 * 400 - Bad Request
 * 500 - Internal Server Error
 
-Where possible the following codes should be used in the following circumstances:
+Where possible the use the appropriate HTTP status code such as the following:
 
-`TODO: Add the additional errors suggested including 404, 304 and others`
+* "304 Not Modified" when the resource has not changed since the last reload or will not change
+* "404 Not found" when a requested entity does not exist
 
 ### URI argument filtering
 
 Although not mandatory arguments are likely in dynamic and large datasets and follow standard `query=` logic.
 
 Where required for compatibility or to satisfy client requirements query arguments can be used to override header variables such as `Accept:` or `Accept-Language:`.
-
-`TODO: Describe how to describe format`
 
 URL arguments are defined by IETF RFC2396 Section 3 defined, through the document, as "query" ( http://www.ietf.org/rfc/rfc2396.txt )
 
@@ -402,6 +436,9 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 * If numerical maintain at least one version back
 
 ## Best Practices
+
+Elements in this section describe prefered implementation to be consistent with existing imeplementation or .
+
 
 `TODO: Describe best practices`
 
