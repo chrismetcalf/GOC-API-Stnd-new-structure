@@ -200,32 +200,6 @@ URL: http://exemple.gc.ca/api/chiens
 
 The scenario above could return English content on the French `http://exemple.gc.ca/api/chiens` page.
 
-##### Multiple language endpoints
-
-Create two APIs with the language included in the API URL.
-
-Example: the same resource with language fields returned in only a single language is available from:
-
-* http://example.gc.ca/en/api/resource/[id]
-* http://example.gc.ca/fr/api/resource/[id]
-
-The domain and API URLs must match exactly so that callers can retrieve the corresponding results in the other language easily.  If French and English content is served from separate domains then both APIs must be available on both domains.
-
-Language fields are returned as objects with their language as the only key:
-
-```JSON
-{
-    "title": {
-         "fr": "Levé LiDAR aux environs du Réserve de biosphere",
-    },
-    "resourceCount": 5,
-    "state": "active",
-    ...
-}
-```
-
-Non-language fields must not be different when the same resource is retrieved in both languages.
-
 ### Documentation
 
 `TODO: Insert when sorted`
@@ -461,7 +435,7 @@ Response design is heavily dictated by data structure but there are better pract
 
 Avoid "node" and "taxonomy term" in your data.
 
-* Good: `{ "dogId": 12345 }`
+* Good: `{ "dog_id": 12345 }`
 * Bad: `{ "did": 12345 }`
 
 #### Metadata is dataset properties
