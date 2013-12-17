@@ -18,7 +18,6 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 			* [Media Type](#media-type)
 			* [Language](#language)
 		* [HTTP Methods](#http-methods)
-		* [URI Structure](#uri-structure)
 		* [Output](#output)
 			* [Metadata](#metadata)
 			* [Minimum Formats](#minimum-formats)
@@ -36,8 +35,8 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 		* [URI structure filtering](#uri-structure-filtering)
 		* [Versioning](#versioning)
 	* [Best Practices](#best-practices)
+        * [URI Structure](#uri-structure)
 		* [Human readble intuitive keys](#human-readble-intuitive-keys)
-		* [camelCase or snake_case](#camelcase_or_snake_case)
 		* [Responses](#responses)
 			* [Values in Keys](#values-in-keys)
 			* [Internal Specific Keys](#internal-specific-keys)
@@ -83,7 +82,7 @@ The intent is not to limit development to the prescribed minimums but to ensure 
 
 ### Minimum delivery
 
-`TODO: Describe minimum delivery`
+Interoperability depends greatly on common implementation.  Elements in this section describe mandatory elements in input, output and mantenence that must be found in and behave as described.
 
 #### HTTP Header
 Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol ( HTTP ).  Although not explicitly prescribed by RESTful design header negotiation is a widely used component in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
@@ -118,33 +117,34 @@ Assuming dogs is a list of all dogs, dog id 1234 is an instance of dog named "Bo
 
 HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html )
 
-### URI Structure
-
 ### Output
-
-`TODO: Describe output`
 
 #### Metadata
 
-`TODO: Describe metadata`
+Representing data about the returned dataset will be required for proper operation of certain features and describing the data provided.
+
+To avoid collision with the data and general interoperability metadata is to be described in a variable in the response.
+
+One field is required in the metadata varialble, the date the response was created in ISO8601 date time format with timezone as described below.
+
+
+{
+    metadata:{ "response_timestamp": "1867-07-01T00:00:01+00:00" },
+    ...
+
+}
+
+http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4
+
 
 #### Minimum Formats
 
+Leading API framworks and present day implementation of APIs delivery two output formats, JSON and XML.  Trends may be leading to JSON only APIs but development tools and applications may still support only one of the two options.  To maximise the clienta base a GoC API must output both JSON and XML at a minimum.
+
 ```
 NOTE:
-
-Presently JSON and XML, probably can't shake that but...
-
 Trends are not good for XML:
 https://www.google.com/trends/explore?q=xml+api#q=xml%20api%2C%20json%20api&cmpt=q
-
-The private sector, built of developers and their clients, is not good for XML:
-
-The WHATWG forced the W3C to re-open HTML developemnt from an xHTML grave.  The future is not XML.
-
-* http://www.w3.org/2004/04/webapps-cdf-ws/papers/opera.html
-* http://lists.whatwg.org/htdig.cgi/whatwg-whatwg.org/2004-June/000005.html
-* http://blog.whatwg.org/this-week-in-html-5-episode-5
 ```
 
 #### Official Languages
@@ -216,7 +216,7 @@ Non-language fields must not be different when the same resource is retrieved in
 
 ## Optional features
 
-`TODO: Describe optional features`
+Beyond the base delivery of an API features can help clients better access and use the data.  Elements in this section describe mandatory implementation of the the optional elements.
 
 ### Dataset segmenting
 
@@ -405,22 +405,26 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 
 `TODO: Describe best practices`
 
+### URI Structure
+
+For consistency with norms APIs should be identified seperatly and consistently.  There are two prevailing methods of distinguising an api from standard content.
+
+The first is to contain API endpoints in a set directory at the root of the resource identifier (RI).  This lowers the chances the API endpoint moves due to later needs for the same root RI.  Using the plural "apis" is consistent with RI based.
+
+* http://example.gc.ca/apis/dogs
+* http://example.gc.ca/apis/cats
+
+The second metod is to define a distinct domain name for the API and appending APIs afer root.  To be consistent with RI strucutre the use of 'apis' would be advised.
+
+* http://apis.example.gc.ca/dogs
+* http://apis.example.gc.ca/cats
+
 ### Human readable intuitive keys
 
 The easier your data is to read and understand the more likely the data is to be used and correctly.
 
 * Good: `{ "name" : "Bogart", "breed": "Bulldog" }`
 * Bad: `{ "nm": "Bogart", "brd": "Bulldog" }`
-
-### camelCase or snake_case
-
-* One of the required formats, JSON, prefers camelCase.
-* Standard delivery platforms and languages prefer camelCase ( PHP, JavaScript ).
-* Camel case can be typed without use of a special character.
-
-Neither is mandatory or recommended for any functional advantage.  If there is no reason to do otherwise camel case is preferred.
-
-`TODO: This felt more ridiculous the longer I typed, I prefer snake_case for readability`
 
 ### Responses
 
