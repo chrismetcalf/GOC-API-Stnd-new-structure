@@ -127,11 +127,9 @@ To avoid collision with the data and general interoperability metadata is to be 
 
 One field is required in the metadata varialble, the date the response was created in ISO8601 date time format with timezone as described below.
 
-
 {
     metadata:{ "response_timestamp": "1867-07-01T00:00:01+00:00" },
     ...
-
 }
 
 http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4
@@ -141,22 +139,9 @@ http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators
 
 Leading API framworks and present day implementation of APIs delivery two output formats, JSON and XML.  Trends may be leading to JSON only APIs but development tools and applications may still support only one of the two options.  To maximise the clienta base a GoC API must output both JSON and XML at a minimum.
 
-```
-NOTE:
-Trends are not good for XML:
 https://www.google.com/trends/explore?q=xml+api#q=xml%20api%2C%20json%20api&cmpt=q
-```
 
 #### Official Languages
-
-```
-TODO: Review the following segment and how it works in the "Best Practice" section.
-Best practice: Implement one or both of the following methods for including multilingual data in responses.
-```
-
-```
-TODO: Review the language in this block, it's close but a different author.  Revisions will fix this.
-```
 
 All English or French content returned as data are to be nested with BCP-47 language codes used as keys.  If the content is unilingual offer the alternate language in metadata.
 
@@ -203,7 +188,7 @@ English Only
 }
 ```
 
-Bilingual, english and french endpoints must all offer bilingual, french or english results if requested ( e.g.: `Accept-Language:`, query parameters or URI construct )
+Bilingual, English and French endpoints must all offer bilingual, French or English results if requested by `Accept-Language:`, `query-parameter=` or ther means.
 
 The calculated language ( e.g.: `Accept-Language:` or query parameters ) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API.
 
@@ -213,7 +198,7 @@ Accept-Language: en
 URL: http://exemple.gc.ca/api/chiens
 ```
 
-The scenario above could return english content on the french `http://exemple.gc.ca/api/chiens` page.
+The scenario above could return English content on the French `http://exemple.gc.ca/api/chiens` page.
 
 ##### Multiple language endpoints
 
@@ -487,5 +472,6 @@ Metadata should only contain direct properties of the response set, not properti
 * Bad: `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
 
 ### Callbacks
+### Webhooks
 
 # Examples
