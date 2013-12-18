@@ -90,7 +90,7 @@ Headers variables are part of the request and response cycle in the Hypertext Tr
 
 The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request (e.g.: `Accept-Charset:`, `Accept-Encoding:`) or response (e.g.: `Content-Language:`, `Content-Length:`) can aid in delivery and efficiency where appropriate but are not required.
 
-Supplemental methods of specifying output formats and language filters will be described later in this document `TODO: Reference url and extension format definition`.
+Supplemental methods of specifying language or output formats such as [URI argument filtering](#23-uri-argument-filtering) or [URI path filtering](#24-uri-path-filtering) may override header variables when required.
 
 ##### 1.1.1 Media Type
 Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions (MIME) types registered with the Internet Assigned Numbers Authority (IANA)'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
@@ -128,8 +128,8 @@ To avoid collision with the data and general interoperability metadata is to be 
 
 Two fields are required in the metadata varialble.
 
-    * The creation datetime of the response in ISO 8601 date-time format with timezone.
-    * The licenses relevant to the dataset presented.
+* The creation datetime of the response in ISO 8601 date-time format with timezone.
+* The licenses relevant to the dataset presented.
 
 ```JSON
 {
@@ -302,8 +302,6 @@ Example use:
 
 Information relevant to record limits, offsets and cursors should also be included as described in the example response as a nested element.  Only relevant elements ("count", "limit", "offset", "page" and "cursor") are required.
 
-`TODO: Find a better word for ruleset than what we have below`
-
 ```JSON
 {
     "metadata": {
@@ -394,7 +392,7 @@ URI based filtering, or Clean URLs, can be used to specify arguments to the API 
 
 Caching is best served when arguments, or URIs in general, are consistently represented.  When encoding arguments in the URI be consistent in the ordering and value representation preferably in data logical order.
 
-Formats in Clean URL are defined as extensions to the virtual file, to define an XML or JSON file would be defined as /path/file.xml and /path/file.json.
+Formats in Clean URL are defined as extensions to the virtual file as one would on a traditional file in a filesystem.  To define an XML or JSON file would be defined as /path/file.xml and /path/file.json.
 
 An API defined with traditional URL arguments would be converted from:
 
@@ -408,7 +406,7 @@ Clean URLs can be achieved by various means such as scripting language or http s
 
 ### 2.5 Versioning
 
-Versioning, from a RESTful approach, is an anti-pattern but often necessary by development practices.  The only requirement in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
+Versioning, from a RESTful approach, is an anti-pattern but often necessary by development practices.  The only requirement in versioning, if implemented, is the inclusion of the version in the output metadata to any relevant versioning format.
 
 ```JSON
 {
@@ -505,3 +503,7 @@ Metadata should only contain direct properties of the response set, not properti
 
 * Good: `"metadata": { "count": 3, "nextDog": 1237 }`
 * Bad: `"metadata": { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
+
+* [Examples](#examples)
+
+`TODO: Insert examples when the the document is sorted to this point`
