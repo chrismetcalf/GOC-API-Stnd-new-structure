@@ -9,42 +9,42 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 
 
 * [This Document](#this-document)
-	* [Goal](#goal)
-	* [Structure](#structure)
-	* [Style Guide](#style-guide)
+    * [Goal](#goal)
+    * [Structure](#structure)
+    * [Style Guide](#style-guide)
 * [Web API Implementation](#web-api-implementation)
-	* [1. Minimum Delivery](#1-minimum-delivery)
-		* [1.1 HTTP Header](#11-http-header)
-			* [1.1.1 Media Type](#111-media-type)
-			* [1.1.2 Language](#112-language)
-		* [1.2 HTTP Methods](#12-http-methods)
-		* [1.3 Output](#13-output)
-			* [1.3.1 Metadata](#131-metadata)
-			* [1.3.2 Minimum Formats](#132-minimum-formats)
-			* [1.3.3 Official Languages](#133-official-languages)
-		* [1.4 Documentation](#14-documentation)
-		* [1.5 Registration](#15-registration)
-	* [2. Optional Features](#2-optional-features)
-		* [2.1 Dataset segmenting](#21-dataset-segmenting)
-			* [2.1.1 Limits](#211-limits)
-			* [2.1.2 Offsets](#212-offsets)
+    * [1. Minimum Delivery](#1-minimum-delivery)
+        * [1.1 HTTP Header](#11-http-header)
+            * [1.1.1 Media Type](#111-media-type)
+            * [1.1.2 Language](#112-language)
+        * [1.2 HTTP Methods](#12-http-methods)
+        * [1.3 Output](#13-output)
+            * [1.3.1 Metadata](#131-metadata)
+            * [1.3.2 Minimum Formats](#132-minimum-formats)
+            * [1.3.3 Official Languages](#133-official-languages)
+        * [1.4 Documentation](#14-documentation)
+        * [1.5 Registration](#15-registration)
+    * [2. Optional Features](#2-optional-features)
+        * [2.1 Dataset segmenting](#21-dataset-segmenting)
+            * [2.1.1 Limits](#211-limits)
+            * [2.1.2 Offsets](#212-offsets)
             * [2.1.3 Pages](#213-pages)
             * [2.1.4 Cursor](#214-cursor)
-			* [2.1.5 Dataset segmenting metadata](#215-dataset-segmenting-metadata)
-		* [2.2 Structured Error Handling](#22-structured-error-handling)
-		* [2.3 URI argument filtering](#23-uri-argument-filtering)
-		* [2.4 URI path filtering](#24-uri-path-filtering)
-		* [2.5 Versioning](#25-versioning)
-	* [3. Best Practices](#3-best-practices)
+            * [2.1.5 Dataset segmenting metadata](#215-dataset-segmenting-metadata)
+        * [2.2 Structured Error Handling](#22-structured-error-handling)
+        * [2.3 URI argument filtering](#23-uri-argument-filtering)
+        * [2.4 URI path filtering](#24-uri-path-filtering)
+        * [2.5 Versioning](#25-versioning)
+    * [3. Best Practices](#3-best-practices)
         * [3.1 URI Structure](#31-uri-structure)
             * [3.1.1 /api/](#311-api)
             * [3.1.2 /developer/](#312-developer)
             * [3.1.3 /data/](#313-data)
-		* [3.2 Human readble intuitive keys](#32-human-readble-intuitive-keys)
-		* [3.3 Responses](#33-responses)
-			* [3.3.1 Values in Keys](#331-values-in-keys)
-			* [3.3.2 Internal Specific Keys](#332-internal-specific-keys)
-			* [3.3.3 Metadata is dataset properties](#333-metadata-is-dataset-properties)
+        * [3.2 Human readble intuitive keys](#32-human-readble-intuitive-keys)
+        * [3.3 Responses](#33-responses)
+            * [3.3.1 Values in Keys](#331-values-in-keys)
+            * [3.3.2 Internal Specific Keys](#332-internal-specific-keys)
+            * [3.3.3 Metadata is dataset properties](#333-metadata-is-dataset-properties)
         * [3.4 Caching](#34-caching)
         * [3.5 Client registration](#35-client-registration)
 * [Examples](#examples)
@@ -73,10 +73,10 @@ For the remainder of this document code, arguments and other undefined technical
 Arguments text will be used as follows:
 * Arguments stated as a header will be followed by a colon ':' as `argument:`
 * Arguments stated as a URI argument will be followed by an the equals sign '=' as `argument=`
-* Arguments stated as a URI path element will be brackeded with forward slashes '/' as `/argument/`
+* Arguments stated as a URI path element will be bracketed with forward slashes '/' as `/argument/`
 * Arguments stated as a file format extension will be prefaced with a period '.' as `.arg`
 
-Draft comments are to be bracked with the following.
+Draft comments are to be bracketed with the following.
 `TODO:`, `NOTE:` and `ISSUE:`
 
 ## Web API Implementation
@@ -85,7 +85,7 @@ Web APIs in the GoC are to be RESTful as described by Roy Thomas Fielding's diss
 The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requirements or options not described in this document may be implemented at the discretion of the API owner so long as the [minimum delivery](#minimum-delivery) and delivery standard of [optional features](#optional-features) are met.
 
 ### 1. Minimum delivery
-Interoperability depends greatly on common implementation at the very least a minimum platform.  This his section describe mandatory elements in input, output and mantenence that must be found in a GoC API and behave as described.
+Interoperability depends greatly on common implementation at the very least a minimum platform.  This his section describe mandatory elements in input, output and maintenance that must be found in a GoC API and behave as described.
 
 #### 1.1 HTTP Header
 Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol (HTTP).  Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
@@ -95,7 +95,7 @@ The minimum header variables to be supported are media type through `Accept:` an
 Supplemental methods of specifying language or output formats such as [URI argument filtering](#23-uri-argument-filtering) or [URI path filtering](#24-uri-path-filtering) may override header variables when required.
 
 ##### 1.1.1 Media Type
-Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions (MIME) types registered with the Internet Assigned Numbers Authority (IANA)'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
+Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions (MIME) types registered with the Internet Assigned Numbers Authority (IANA)'s media type catalogue.  For most standard file types IANA's media type catalogue will provide the appropriate type definition.
 
 The `Accept:` header is described by W3C RFC2616 Section 14.1 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1)
 
@@ -104,7 +104,7 @@ The media types are defined by by IANA.org (http://www.iana.org/assignments/medi
 ##### 1.1.2 Language
 The `Accept-Language:` header is described by W3C RFC2616 Section 14.4 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4)
 
-Languages are to be defined by the W3C recomended BCP-47 (http://www.w3.org/International/core/langtags/#bcp47).
+Languages are to be defined by the W3C recommended BCP-47 (http://www.w3.org/International/core/langtags/#bcp47).
 
 #### 1.2 HTTP Methods
 HTTP Methods are often described in APIs as verbs.  Verbs refer to standard actions taken on data, those standard verbs are (POST, GET, PUT and DELETE).
@@ -128,9 +128,9 @@ Representing data about the returned dataset will be required for proper operati
 
 To avoid collision with the data and general interoperability metadata is to be described in a variable in the response.
 
-Two fields are required in the metadata varialble.
+Two fields are required in the metadata variable.
 
-* The creation datetime of the response in ISO 8601 date-time format with timezone.
+* The creation date-time of the response in ISO 8601 date-time format with timezone.
 * The licenses relevant to the dataset presented.
 
 ```JSON
@@ -168,7 +168,7 @@ Elements used in this description:
 * http://schema.org/description
 * http://schema.org/keywords
 * http://schema.org/dateModified
-* http://schema.org/publisher        
+* http://schema.org/publisher
 * http://schema.org/dateCreated
 
 Mandated use of ISO 8601 in the TBS Standard on Metadata (http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4)
@@ -177,7 +177,7 @@ Use of timezones in ISO 8601 (http://en.wikipedia.org/wiki/ISO_8601#Time_zone_de
 
 #### 1.3.2 Minimum Formats
 
-Leading API framworks and present day implementation of APIs delivery two output formats, JSON and XML.  Trends may be leading to JSON only APIs but development tools and applications may still support only one of the two options.  To maximise the clienta base a GoC API must output both JSON and XML at a minimum.
+Leading API frameworks and present day implementation of APIs delivery two output formats, JSON and XML.  Trends may be leading to JSON only APIs but development tools and applications may still support only one of the two options.  To maximize the client base a GoC API must output both JSON and XML at a minimum.
 
 https://www.google.com/trends/explore?q=xml+api#q=xml%20api%2C%20json%20api&cmpt=q
 
@@ -225,7 +225,7 @@ English Only
 }
 ```
 
-Bilingual, English and French endpoints must all offer bilingual, French or English results if requested by `Accept-Language:`, `query-parameter=` or ther means.
+Bilingual, English and French endpoints must all offer bilingual, French or English results if requested by `Accept-Language:`, `query-parameter=` or other means.
 
 The calculated language (e.g.: `Accept-Language:` or query parameters) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API.
 
@@ -251,7 +251,7 @@ Beyond the base delivery of an API features can help clients better access and u
 
 ### 2.1 Dataset segmenting
 
-Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit.  These elements are strongly recomendeded where possible and relevant.  A second, but no less important, consideration for the client creates requirements such as mobile device limitations and dataset size.
+Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit.  These elements are strongly recommended where possible and relevant.  A second, but no less important, consideration for the client creates requirements such as mobile device limitations and dataset size.
 
 #### 2.1.1 Limits
 
@@ -307,7 +307,7 @@ Information relevant to record limits, offsets and cursors should also be includ
 ```JSON
 {
     "metadata": {
-        "resultset": {
+        "resultSet": {
             "count": 25,
             "limit": 25,
             "page": 3,
@@ -321,7 +321,7 @@ Information relevant to record limits, offsets and cursors should also be includ
 ```JSON
 {
     "metadata": {
-        "resultset": {
+        "resultSet": {
             "count": 100,
             "limit": 100,
             "page": 2,
@@ -335,7 +335,7 @@ Information relevant to record limits, offsets and cursors should also be includ
 ```JSON
 {
     "metadata": {
-        "resultset": {
+        "resultSet": {
             "count": 18,
             "limit": 25,
             "cursor": "20130101.010101"
@@ -413,7 +413,7 @@ Versioning, from a RESTful approach, is an anti-pattern but often necessary by d
 ```JSON
 {
     "metadata": {
-    	"version": "3.1.23a"
+        "version": "3.1.23a"
     }
 }
 ```
@@ -430,20 +430,20 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 
 ## 3. Best Practices
 
-Elements in this section describe prefered implementation to be consistent with existing imeplementation or better methods of implementation.
+Elements in this section describe preferred implementation to be consistent with existing implementation or better methods of implementation.
 
 ### 3.1 URI Structure
 
 #### 3.1.1 /api/
 
-For consistency with norms APIs should be identified seperatly and consistently.  There are two prevailing methods of distinguising an api from standard content.
+For consistency with norms APIs should be identified separately and consistently.  There are two prevailing methods of distinguishing an api from standard content.
 
 The first is to contain API endpoints in a set directory at the root of the resource identifier (RI).  This lowers the chances the API endpoint moves due to later needs for the same root RI.  Using the plural "apis" is consistent with RI based.
 
 * http://example.gc.ca/apis/dogs
 * http://example.gc.ca/apis/cats
 
-The second metod is to define a distinct domain name for the API and appending APIs afer root.  To be consistent with RI strucutre the use of 'apis' would be advised.
+The second method is to define a distinct domain name for the API and appending APIs after root.  To be consistent with RI structure the use of 'apis' would be advised.
 
 * http://apis.example.gc.ca/dogs
 * http://apis.example.gc.ca/cats
@@ -452,7 +452,7 @@ The second metod is to define a distinct domain name for the API and appending A
 
 For consistency API documentation should be segregated into a common location.  Common practice is to maintain a developer's resource, although no fixed standard exist `/developer/` is a consistent term.
 
-Use one of the following as per the institution's inherant web delivery infrastrucutre.
+Use one of the following as per the institution's inherent web delivery infrastructure.
 
 * `/developer/`
 * `/developpeur/`
@@ -464,7 +464,7 @@ Use one of the following as per the institution's inherant web delivery infrastr
 
 #### 3.1.3 /data/
 
-The `/data/` directories are reserved for institutional use.  API development should no use `/data/` as the inherant home for APIs where `/data/apis/` would be acceptable.
+The `/data/` directories are reserved for institutional use.  API development should no use `/data/` as the inherent home for APIs where `/data/apis/` would be acceptable.
 
 This is true for the following directories
 
@@ -510,11 +510,11 @@ Metadata should only contain direct properties of the response set, not properti
 
 Considering the clients and easy of use for APIs current HTTP delivery models may not be sufficient.  Local caching servers (e.g.: Squid, Varnish) or hosted Content delivery network (CND) can protect a network from bandwidth depending on request patterns.
 
-How the API is structured, how expiry times are calculated and contract minimum delivery are all vital to propper caching.
+How the API is structured, how expiry times are calculated and contract minimum delivery are all vital to proper caching.
 
 #### 3.5 Client registration
 
-To ease future tracking for metrics or to identify issues requiering/requesting an api key may be of use.  The request for a key should not request private information (name, email, phone number, etc...)
+To ease future tracking for metrics or to identify issues requiring/requesting an api key may be of use.  The request for a key should not request private information (name, email, phone number, etc...)
 
 * [Examples](#examples)
 
