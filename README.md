@@ -45,11 +45,11 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 ## This document
 
 ### Goal
-The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consistent and up to the highest standards by defining a base level of delivery and only describing expansion when further comment is required.
+The goal of this document is to ensure API delivery across the Government of Canada (GoC) is consistent and up to the highest standards by defining a base level of delivery and only describing expansion when further comment is required.
 
 The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
 
-It's expected that anything not described in this document is to be implemented from best practices with an eye to interoperability, maintainability, best practices and future direction.  Gaps, errors or new best practices should be brought to the Web Standards Office ( WSO ) Web Interoperability Working Group ( WIWG ).
+It's expected that anything not described in this document is to be implemented from best practices with an eye to interoperability, maintainability, best practices and future direction.  Gaps, errors or new best practices should be brought to the Web Standards Office (WSO) Web Interoperability Working Group (WIWG).
 
 GoC APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
 
@@ -82,26 +82,26 @@ The intent is not to limit development to the prescribed minimums but to ensure 
 Interoperability depends greatly on common core implementation.  Elements in this section describe mandatory elements in input, output and mantenence that must be found in a GoC API and behave as described.
 
 #### HTTP Header
-Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol ( HTTP ).  Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
+Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol (HTTP).  Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
 
-The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request ( e.g.: `Accept-Charset:`, `Accept-Encoding:` ) or response ( e.g.: `Content-Language:`, `Content-Length:`  ) can aid in delivery and efficiency where appropriate but are not required.
+The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request (e.g.: `Accept-Charset:`, `Accept-Encoding:`) or response (e.g.: `Content-Language:`, `Content-Length:`) can aid in delivery and efficiency where appropriate but are not required.
 
 Supplemental methods of specifying output formats and language filters will be described later in this document `TODO: Reference url and extension format definition`.
 
 ##### Media Type
-Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions ( MIME ) types registered with the Internet Assigned Numbers Authority ( IANA )'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
+Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions (MIME) types registered with the Internet Assigned Numbers Authority (IANA)'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
 
-The `Accept:` header is described by W3C RFC2616 Section 14.1 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1 )
+The `Accept:` header is described by W3C RFC2616 Section 14.1 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1)
 
-The media types are defined by by IANA.org ( http://www.iana.org/assignments/media-types/media-types.xhtml )
+The media types are defined by by IANA.org (http://www.iana.org/assignments/media-types/media-types.xhtml)
 
 ##### Language
-The `Accept-Language:` header is described by W3C RFC2616 Section 14.4 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4 )
+The `Accept-Language:` header is described by W3C RFC2616 Section 14.4 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4)
 
-Languages are to be defined by the W3C recomended BCP-47 ( http://www.w3.org/International/core/langtags/#bcp47 ).
+Languages are to be defined by the W3C recomended BCP-47 (http://www.w3.org/International/core/langtags/#bcp47).
 
 #### HTTP Methods
-HTTP Methods are often described in APIs as verbs.  Verbs refer to standard actions taken on data, those standard verbs are ( POST, GET, PUT and DELETE ).
+HTTP Methods are often described in APIs as verbs.  Verbs refer to standard actions taken on data, those standard verbs are (POST, GET, PUT and DELETE).
 
 Assuming dogs is a list of all dogs, dog id 1234 is an instance of dog named "Bogart" and instance 4321 is "Shreddies"
 
@@ -112,7 +112,7 @@ Assuming dogs is a list of all dogs, dog id 1234 is an instance of dog named "Bo
 | /dogs/1234  | Error           | Show Bogart    | update Bogart    | Delete Bogart    |
 | /dogs/4321  | Error           | Show Shreddies | update Shreddies | Delete Shreddies |
 
-HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html )
+HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
 ### Output
 
@@ -153,7 +153,7 @@ Elements used in this description:
 * http://schema.org/publisher        
 * http://schema.org/dateCreated
 
-Mandated use of ISO 8601 in the TBS Standard on Metadata ( http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4 )
+Mandated use of ISO 8601 in the TBS Standard on Metadata (http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4)
 
 Use of timezones in ISO 8601 (http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators)
 
@@ -209,7 +209,7 @@ English Only
 
 Bilingual, English and French endpoints must all offer bilingual, French or English results if requested by `Accept-Language:`, `query-parameter=` or ther means.
 
-The calculated language ( e.g.: `Accept-Language:` or query parameters ) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API.
+The calculated language (e.g.: `Accept-Language:` or query parameters) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API.
 
 ```
 Accept: text/html
@@ -284,7 +284,7 @@ Example use:
 
 #### Dataset segmenting metadata
 
-Information relevant to record limits, offsets and cursors should also be included as described in the example response as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "cursor" ) are required.
+Information relevant to record limits, offsets and cursors should also be included as described in the example response as a nested element.  Only relevant elements ("count", "limit", "offset", "page" and "cursor") are required.
 
 `TODO: Find a better word for ruleset than what we have below`
 
@@ -336,9 +336,9 @@ Research into common practice provides the following error structure:
 * Error responses are to be an HTTP status code
 * The same code is to be included
 * A message for the developer
-* A message for the end-user ( when appropriate )
-* An internal error code ( corresponding to an internal code if available )
-* A link where developers can find more information ( if available )
+* A message for the end-user (when appropriate)
+* An internal error code (corresponding to an internal code if available)
+* A link where developers can find more information (if available)
 
 In JSON format
 
@@ -353,7 +353,7 @@ In JSON format
 }
 ```
 
-The three base states to recognize are success, improper request ( client error ) and internal server error ( API error ).  These better defined by the following HTTP Status codes:
+The three base states to recognize are success, improper request (client error) and internal server error (API error).  These better defined by the following HTTP Status codes:
 
 * 200 - OK
 * 400 - Bad Request
@@ -370,7 +370,7 @@ Although not mandatory arguments are likely in dynamic and large datasets and fo
 
 Where required for compatibility or to satisfy client requirements query arguments can be used to override header variables such as `Accept:` or `Accept-Language:`.
 
-URL arguments are defined by IETF RFC2396 Section 3 defined, through the document, as "query" ( http://www.ietf.org/rfc/rfc2396.txt )
+URL arguments are defined by IETF RFC2396 Section 3 defined, through the document, as "query" (http://www.ietf.org/rfc/rfc2396.txt)
 
 ### URI structure filtering
 
@@ -405,7 +405,7 @@ Versioning, from a RESTful approach, is an anti-pattern but often necessary by d
 If an API is to be versioned interoperability and consistency is greatly aided by the following:
 
 * Limit endpoint changes unless necessary
-* Create endpoint for needs by the need over numerical where appropriate ( e.g.: hardware dependance, client needs )
+* Create endpoint for needs by the need over numerical where appropriate (e.g.: hardware dependance, client needs)
 * Versions should be integers not decimal numbers to avoid galloping endpoints and prefixed with ‘v’ for intuitive identification
     * Good: `v1, v2, v3`
     * Bad: `v-1.1, v1.2, 1.3`
