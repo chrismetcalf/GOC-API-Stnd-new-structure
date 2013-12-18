@@ -92,12 +92,12 @@ Supplemental methods of specifying output formats and language filters will be d
 ##### Media Type
 Output format, commonly known as media type, from a Web API are historically described my Multipurpose Internet Mail Extensions ( MIME ) types registered with the Internet Assigned Numbers Authority ( IANA )'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
 
-The `Accept:` header is described by W3C RFC2616 Section 14.1 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html )
+The `Accept:` header is described by W3C RFC2616 Section 14.1 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1 )
 
 The media types are defined by by IANA.org ( http://www.iana.org/assignments/media-types/media-types.xhtml )
 
 ##### Language
-The `Accept-Language:` header is described by W3C RFC2616 Section 14.4 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html )
+The `Accept-Language:` header is described by W3C RFC2616 Section 14.4 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4 )
 
 Languages are to be defined by the W3C recomended BCP-47 ( http://www.w3.org/International/core/langtags/#bcp47 ).
 
@@ -165,7 +165,7 @@ Bilingual
 French Only
 ```JSON
 {
-    metadata: { "en:" : "http://example.gc.ca/..."},
+    "metadata": { "en": "http://example.gc.ca/..." },
     "size": {
          "fr": "Gros"
     },
@@ -179,7 +179,7 @@ French Only
 English Only
 ```JSON
 {
-    metadata: { "fr:" : "http://exemple.gc.ca/..."},
+    "metadata": { "fr": "http://exemple.gc.ca/..." },
     "size": {
          "en": "Large"
     },
