@@ -126,8 +126,7 @@ One field is required in the metadata varialble, the creation datetime of the re
 
 ```JSON
 {
-    metadata:{ "dateCreated": "2014-01-01T00:00:00+00:00" },
-    ...
+    metadata:{ "dateCreated": "2014-01-01T00:00:00+00:00" }
 }
 ```
 
@@ -178,36 +177,33 @@ Bilingual
     "type": {
          "fr": "Chien",
          "en": "Dog"
-    },
-    ...
+    }
 }
 ```
 
 French Only
 ```JSON
 {
-    "metadata": { "en": "http://example.gc.ca/..." },
+    "metadata": { "en": "http://example.gc.ca/apis/dogs" },
     "size": {
          "fr": "Gros"
     },
     "type": {
          "fr": "Chien"
-    },
-    ...
+    }
 }
 ```
 
 English Only
 ```JSON
 {
-    "metadata": { "fr": "http://exemple.gc.ca/..." },
+    "metadata": { "fr": "http://exemple.gc.ca/apis/chiens" },
     "size": {
          "en": "Large"
     },
     "type": {
          "en": "Dog"
-    },
-    ...
+    }
 }
 ```
 
@@ -302,8 +298,7 @@ Information relevant to record limits, offsets and cursors should also be includ
             "offset": 75,
             "cursor": "sam100890032"
         }
-    },
-    ...
+    }
 }
 ```
 
@@ -317,8 +312,7 @@ Information relevant to record limits, offsets and cursors should also be includ
             "offset": 200,
             "cursor": "Smith, John"
         }
-    },
-    ...
+    }
 }
 ```
 
@@ -330,8 +324,7 @@ Information relevant to record limits, offsets and cursors should also be includ
             "limit": 25,
             "cursor": "20130101.010101"
         }
-    },
-    ...
+    }
 }
 ```
 
@@ -405,8 +398,7 @@ Versioning, from a RESTful approach, is an anti-pattern but often necessary by d
 {
     "metadata": {
     	"version": "3.1.23a"
-    },
-    ...
+    }
 }
 ```
 
