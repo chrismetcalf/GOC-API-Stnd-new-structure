@@ -139,7 +139,7 @@ Where possible describe the dataset validity, licences and publishers and do so 
         "description":"Catalogue of earthquakes magnitude 4 or greater from 1992 calendar year",
         "keywords":"earthquake data",
         "dateModified":"1867-07-01T00:00:01+00:00",
-        "publisher: "Government of Canada",
+        "publisher": "Government of Canada",
         "dateCreated":"2014-01-01T00:00:00+00:00"
     }
 }
