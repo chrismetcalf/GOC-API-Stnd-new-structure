@@ -8,10 +8,10 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 </span>
 
 
-* [This Document](#this-document)
-	* [Goal](#goal)
-	* [Structure](#structure)
-	* [Style Guide](#style-guide)
+* [1. This Document](#1-this-document)
+	* [1.1 Goal](#1.1-goal)
+	* [1.2 Structure](#12-structure)
+	* [1.3 Style Guide](#1.3-style-guide)
 * [Web API Implementation](#web-api-implementation)
 	* [Minimum Delivery](#minimum-delivery)
 		* [HTTP Header](#http-header)
@@ -42,25 +42,25 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 			* [Internal Specific Keys](#internal-specific-keys)
 			* [Metadata is dataset properties](#metadata-is-dataset-properties)
 
-## This document
+## 1. This document
 
-### Goal
+### 1.1 Goal
 The goal of this document is to ensure API delivery across the Government of Canada (GoC) is consistent and up to the highest standards by defining a base level of delivery and only describing expansion when further comment is required.
 
 The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
 
-It's expected that anything not described in this document is to be implemented from best practices with an eye to interoperability, maintainability, best practices and future direction.  Gaps, errors or new best practices should be brought to the Web Standards Office (WSO) Web Interoperability Working Group (WIWG).
+It's expected that anything not described in this document is to be implemented from best practices with an eye to interoperability, maintainability and future direction.  Gaps, errors or new best practices should be brought to the Web Standards Office (WSO) Web Interoperability Working Group (WIWG).
 
 GoC APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
 
-### Structure
+### 1.2 Structure
 This document describes API requirements by priority:
 
 * [Minimum delivery](#minimum-delivery)
 * [Optional features](#optional-features)
 * [Best practices](#best-practices)
 
-### Style Guide
+### 1.3 Style Guide
 For the remainder of this document code, arguments and other undefined technical statements will be `code fenced` as to be easily distinguishable from standard text.
 
 Arguments text will be used as follows:
@@ -78,8 +78,7 @@ Web APIs in the GoC are to be RESTful as described by Roy Thomas Fielding's diss
 The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requirements or options not described in this document may be implemented at the discretion of the API owner so long as the [minimum delivery](#minimum-delivery) and delivery standard of [optional features](#optional-features) are met.
 
 ### Minimum delivery
-
-Interoperability depends greatly on common core implementation.  Elements in this section describe mandatory elements in input, output and mantenence that must be found in a GoC API and behave as described.
+Interoperability depends greatly on common implementation at the very least a minimum platform.  This his section describe mandatory elements in input, output and mantenence that must be found in a GoC API and behave as described.
 
 #### HTTP Header
 Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol (HTTP).  Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
@@ -136,7 +135,7 @@ Where possible describe the dataset validity, licences and publishers and do so 
 {
     "metadata":{
         "name":"Earthquakes >4 for 1992",
-        "description":"Catalogue of earthquakes magnitude 4 or greater from 1992 calendar year",
+        "description":"Earthquakes magnitude 4 or greater, 1992 calendar year",
         "keywords":"earthquake data",
         "dateModified":"1867-07-01T00:00:01+00:00",
         "publisher": "Government of Canada",
