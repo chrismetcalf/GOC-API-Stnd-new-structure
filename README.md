@@ -45,21 +45,20 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 ## This document
 
 ### Goal
-The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consistent and up to the highest standards by defining a base level of delivery, describing expansion where possible.  The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
+The goal of this document is to ensure API delivery across the Government of Canada ( GoC ) is consistent and up to the highest standards by defining a base level of delivery and only describing expansion when further comment is required.
 
-```
-TODO: Merge the following
+The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
 
-This document provides a standard along with examples for Government of Canada Web APIs, encouraging consistency, maintainability, and best practices across applications. Government of Canada APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
-````
+It's expected that anything not described in this document is to be implemented from best practices with an eye to interoperability, maintainability, best practices and future direction.  Gaps, errors or new best practices should be brought to the Web Standards Office ( WSO ) Web Interoperability Working Group ( WIWG ).
+
+GoC APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
 
 ### Structure
 This document describes API requirements by priority:
 
-* Minimum delivery
-* Optional features
-* Best practices
-* Examples
+* [Minimum delivery](#minimum-delivery)
+* [Optional features](#optional-features)
+* [Best practices](#best-practices)
 
 ### Style Guide
 For the remainder of this document code, arguments and other undefined technical statements will be `code fenced` as to be easily distinguishable from standard text.
@@ -76,21 +75,21 @@ Draft comments are to be bracked with the following.
 ## Web API Implementation
 Web APIs in the GoC are to be RESTful as described by Roy Thomas Fielding's dissertation "Architectural Styles and the Design of Network-based Software Architectures" (2000) adapted to mandated minimums for the GoC and design choices in support of Web Interoperability.
 
-The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requirements or options not described in this document may be implemented at the discretion of the API owner so long as the minimums and delivery standard of optional features are met.
+The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requirements or options not described in this document may be implemented at the discretion of the API owner so long as the [minimum delivery](#minimum-delivery) and delivery standard of [optional features](#optional-features) are met.
 
 ### Minimum delivery
 
-Interoperability depends greatly on common implementation.  Elements in this section describe mandatory elements in input, output and mantenence that must be found in and behave as described.
+Interoperability depends greatly on common core implementation.  Elements in this section describe mandatory elements in input, output and mantenence that must be found in a GoC API and behave as described.
 
 #### HTTP Header
-Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol ( HTTP ).  Although not explicitly prescribed by RESTful design header negotiation is a widely used component in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
+Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol ( HTTP ).  Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
 
-The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request ( e.g.: `Accept-Charset:`, `Accept-Encoding:` ) or response ( e.g.: `Content-Language:`, `Content-Length:`  ) often aid in delivery and efficiency where appropriate.
+The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request ( e.g.: `Accept-Charset:`, `Accept-Encoding:` ) or response ( e.g.: `Content-Language:`, `Content-Length:`  ) can aid in delivery and efficiency where appropriate but are not required.
 
 Supplemental methods of specifying output formats and language filters will be described later in this document `TODO: Reference url and extension format definition`.
 
 ##### Media Type
-Output format, commonly known as media type, from a Web API are historically described my Multipurpose Internet Mail Extensions ( MIME ) types registered with the Internet Assigned Numbers Authority ( IANA )'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
+Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions ( MIME ) types registered with the Internet Assigned Numbers Authority ( IANA )'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
 
 The `Accept:` header is described by W3C RFC2616 Section 14.1 ( http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1 )
 
@@ -127,14 +126,36 @@ One field is required in the metadata varialble, the creation datetime of the re
 
 ```JSON
 {
-    metadata:{ "response_timestamp": "1867-07-01T00:00:01+00:00" },
+    metadata:{ "dateCreated": "2014-01-01T00:00:00+00:00" },
     ...
 }
 ```
 
-Where possible describe the dataset validity, licences and publishers.
+Where possible describe the dataset validity, licences and publishers and do so with Schema.org as the namespace.  This is consistent and interoperable with RDFa's usage in the Standard on Web Interoperability Appendix E: HTML data requirements (http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=25875&section=text)
+
+```JSON
+{
+    metadata:{
+        "name":"Earthquakes >4 for 1992",
+        "description":"Catalogue of earthquakes magnitude 4 or greater from 1992 calendar year",
+        "keywords":"earthquake data",
+        "dateModified":"1867-07-01T00:00:01+00:00",
+        "publisher: "Government of Canada",
+        "dateCreated":"2014-01-01T00:00:00+00:00"
+    }
+}
+
+Elements used in this description:
+
+* http://schema.org/name
+* http://schema.org/description
+* http://schema.org/keywords
+* http://schema.org/dateModified
+* http://schema.org/publisher        
+* http://schema.org/dateCreated
 
 Mandated use of ISO 8601 in the TBS Standard on Metadata ( http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4 )
+
 Use of timezones in ISO 8601 (http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators)
 
 #### Minimum Formats
