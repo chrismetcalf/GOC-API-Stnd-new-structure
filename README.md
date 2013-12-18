@@ -397,10 +397,7 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 
 ## Best Practices
 
-Elements in this section describe prefered implementation to be consistent with existing imeplementation or .
-
-
-`TODO: Describe best practices`
+Elements in this section describe prefered implementation to be consistent with existing imeplementation or better methods of implementation.
 
 ### URI Structure
 
