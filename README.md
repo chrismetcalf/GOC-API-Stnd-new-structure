@@ -123,15 +123,19 @@ Representing data about the returned dataset will be required for proper operati
 
 To avoid collision with the data and general interoperability metadata is to be described in a variable in the response.
 
-One field is required in the metadata varialble, the date the response was created in ISO8601 date time format with timezone as described below.
+One field is required in the metadata varialble, the date the response was created in ISO 8601 date time format with timezone as described below.
 
+```JSON
 {
     metadata:{ "response_timestamp": "1867-07-01T00:00:01+00:00" },
     ...
 }
+```
 
-http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4
-http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators
+Where possible describe the dataset validity, licences and publishers.
+
+Mandated use of ISO 8601 in the TBS Standard on Metadata ( http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&section=text#sec9.4 )
+Use of timezones in ISO 8601 (http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators)
 
 #### Minimum Formats
 
