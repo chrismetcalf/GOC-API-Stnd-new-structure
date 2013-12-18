@@ -28,8 +28,9 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 		* [2.1 Dataset segmenting](#21-dataset-segmenting)
 			* [2.1.1 Limits](#211-limits)
 			* [2.1.2 Offsets](#212-offsets)
-			* [2.1.3 Pages](#213-pages)
-			* [2.1.4 Dataset segmenting metadata](#214-dataset-segmenting-metadata)
+            * [2.1.3 Pages](#213-pages)
+            * [2.1.4 Cursor](#214-cursor)
+			* [2.1.5 Dataset segmenting metadata](#215-dataset-segmenting-metadata)
 		* [2.2 Structured Error Handling](#22-structured-error-handling)
 		* [2.3 URI argument filtering](#23-uri-argument-filtering)
 		* [2.4 URI structure filtering](#24-uri-structure-filtering)
@@ -57,9 +58,9 @@ GoC APIs aim to balance a truly RESTful API interface with a positive developer 
 ### Structure
 This document describes API requirements by priority:
 
-* [Minimum delivery](#minimum-delivery)
-* [Optional features](#optional-features)
-* [Best practices](#best-practices)
+* [Minimum delivery](#1-minimum-delivery)
+* [Optional features](#2-optional-features)
+* [Best practices](#3-best-practices)
 
 ### Style Guide
 For the remainder of this document code, arguments and other undefined technical statements will be `code fenced` as to be easily distinguishable from standard text.
@@ -78,29 +79,29 @@ Web APIs in the GoC are to be RESTful as described by Roy Thomas Fielding's diss
 
 The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently.  Any and all other requirements or options not described in this document may be implemented at the discretion of the API owner so long as the [minimum delivery](#minimum-delivery) and delivery standard of [optional features](#optional-features) are met.
 
-### Minimum delivery
+### 1. Minimum delivery
 Interoperability depends greatly on common implementation at the very least a minimum platform.  This his section describe mandatory elements in input, output and mantenence that must be found in a GoC API and behave as described.
 
-#### HTTP Header
+#### 1.1 HTTP Header
 Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol (HTTP).  Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
 
 The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request (e.g.: `Accept-Charset:`, `Accept-Encoding:`) or response (e.g.: `Content-Language:`, `Content-Length:`) can aid in delivery and efficiency where appropriate but are not required.
 
 Supplemental methods of specifying output formats and language filters will be described later in this document `TODO: Reference url and extension format definition`.
 
-##### Media Type
+##### 1.1.1 Media Type
 Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions (MIME) types registered with the Internet Assigned Numbers Authority (IANA)'s media type catalogue.  For most standard file types IANA's media type cataloge will provide the appropriate type definition.
 
 The `Accept:` header is described by W3C RFC2616 Section 14.1 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1)
 
 The media types are defined by by IANA.org (http://www.iana.org/assignments/media-types/media-types.xhtml)
 
-##### Language
+##### 1.1.2 Language
 The `Accept-Language:` header is described by W3C RFC2616 Section 14.4 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4)
 
 Languages are to be defined by the W3C recomended BCP-47 (http://www.w3.org/International/core/langtags/#bcp47).
 
-#### HTTP Methods
+#### 1.2 HTTP Methods
 HTTP Methods are often described in APIs as verbs.  Verbs refer to standard actions taken on data, those standard verbs are (POST, GET, PUT and DELETE).
 
 Assuming dogs is a list of all dogs, dog id 1234 is an instance of dog named "Bogart" and instance 4321 is "Shreddies"
@@ -114,23 +115,34 @@ Assuming dogs is a list of all dogs, dog id 1234 is an instance of dog named "Bo
 
 HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
-### Output
+### 1.3 Output
 
-#### Metadata
+#### 1.3.1 Metadata
 
 Representing data about the returned dataset will be required for proper operation of certain features and describing the data provided.
 
 To avoid collision with the data and general interoperability metadata is to be described in a variable in the response.
 
-One field is required in the metadata varialble, the creation datetime of the response in ISO 8601 date time format with timezone as described below.
+Two fields are required in the metadata varialble.
+
+    * The creation datetime of the response in ISO 8601 date-time format with timezone.
+    * The licenses relevant to the dataset presented.
 
 ```JSON
 {
-    "metadata":{ "dateCreated": "2014-01-01T00:00:00+00:00" }
+    "metadata":
+    {
+        "dateCreated": "2014-01-01T00:00:00+00:00",
+        "licenses":
+        {
+            "http://example.gc.ca/license-eng.php",
+            "http://data.gc.ca/eng/open-government-licence-canada"
+        }
+    }
 }
 ```
 
-Where possible describe the dataset validity, licences and publishers and do so with Schema.org as the namespace.  This is consistent and interoperable with RDFa's usage in the Standard on Web Interoperability Appendix E: HTML data requirements (http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=25875&section=text)
+Where possible describe the dataset validity, additional licenses and publishers with Schema.org as the namespace.  This is consistent and interoperable with RDFa's usage in the Standard on Web Interoperability Appendix E: HTML data requirements (http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=25875&section=text)
 
 ```JSON
 {
@@ -158,13 +170,13 @@ Mandated use of ISO 8601 in the TBS Standard on Metadata (http://www.tbs-sct.gc.
 
 Use of timezones in ISO 8601 (http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators)
 
-#### Minimum Formats
+#### 1.3.2 Minimum Formats
 
 Leading API framworks and present day implementation of APIs delivery two output formats, JSON and XML.  Trends may be leading to JSON only APIs but development tools and applications may still support only one of the two options.  To maximise the clienta base a GoC API must output both JSON and XML at a minimum.
 
 https://www.google.com/trends/explore?q=xml+api#q=xml%20api%2C%20json%20api&cmpt=q
 
-#### Official Languages
+#### 1.3.3 Official Languages
 
 All English or French content returned as data are to be nested with BCP-47 language codes used as keys.  If the content is unilingual offer the alternate language in metadata.
 
@@ -220,23 +232,23 @@ URL: http://exemple.gc.ca/api/chiens
 
 The scenario above could return English content on the French `http://exemple.gc.ca/api/chiens` page.
 
-### Documentation
+### 1.4 Documentation
 
-`TODO: Insert when sorted`
+`TODO: Known gap, to be complete early Jan`
 
-### Registration
+### 1.5 Registration
 
-`TODO: Must be described`
+`TODO: Known gap, to be complete early Jan`
 
-## Optional features
+## 2. Optional features
 
 Beyond the base delivery of an API features can help clients better access and use the data.  Elements in this section describe mandatory implementation of the the optional elements.
 
-### Dataset segmenting
+### 2.1 Dataset segmenting
 
 Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit.  These elements are strongly recomendeded where possible and relevant.  A second, but no less important, consideration for the client creates requirements such as mobile device limitations and dataset size.
 
-#### Limits
+#### 2.1.1 Limits
 
 * If no limit is specified, return results with a default limit.
     * Sanity check to a reasonable return size
@@ -249,7 +261,7 @@ Limits are nearly always mandatory, only limited size datasets are safe to to im
 
 Limits are to be defined as the singular `limit=` followed by an integer.
 
-#### Offsets
+#### 2.1.2 Offsets
 
 Offsets apply to the structured data returned from the API distinct from internal indexing in the data.  For the purpose of explanation we'll assume rows/objects return are numbered 1, 2, 3, 4, 5 to the limit.
 
@@ -262,7 +274,7 @@ Example use:
 * http://example.gc.ca/api/dataset?limit=25&offset=75
     * For row is base 1 rows 76 through 100 should be returned
 
-#### Pages
+#### 2.1.3 Pages
 
 Much like offsets defined above `page=` is an offset incremented by the `limit=` argument.  If `limit=` is set to 25 and `page=` is set to 2 the total offset is 50, if the `page=` is set to 3 the total offset is 150.
 
@@ -271,11 +283,11 @@ Example use:
 * http://example.gc.ca/api/dataset?limit=25&page=3
     * For row is base 1 rows 76 through 100 should be returned
 
-#### Cursor
+#### 2.1.4 Cursor
 
 `cursor=` is an offset with a value based on the sort order of results returned.
 
-Use `cursor=` to reliably iterate over all results without risk of skipping or receiving duplicate rows/objects due to insertions/deletions happening at the same time.
+Use `cursor=` to reliably iterate over results without risk of skipping or receiving duplicate rows/objects due to insertions/deletions.
 
 The string value use with `cursor=` is returned in the metadata of each response when any rows/objects are returned.  Typically it is a single value copied from the last row/object, and could be a date, name, internal id or any other sortable type.
 
@@ -283,7 +295,7 @@ Example use:
 * http://example.gc.ca/api/dataset?limit=25&cursor=20130101.010101
     * For 25 rows following the row containing the sort order value "20130101.010101"
 
-#### Dataset segmenting metadata
+#### 2.1.5 Dataset segmenting metadata
 
 Information relevant to record limits, offsets and cursors should also be included as described in the example response as a nested element.  Only relevant elements ("count", "limit", "offset", "page" and "cursor") are required.
 
