@@ -1,5 +1,5 @@
 GC Web API Standards
-======================
+====================
 
 <span color='red'>
 Working requirements for Government of Canada (GoC) Web Application Programming Interfaces (API)s.
@@ -123,7 +123,7 @@ Representing data about the returned dataset will be required for proper operati
 
 To avoid collision with the data and general interoperability metadata is to be described in a variable in the response.
 
-One field is required in the metadata varialble, the date the response was created in ISO 8601 date time format with timezone as described below.
+One field is required in the metadata varialble, the creation datetime of the response in ISO 8601 date time format with timezone as described below.
 
 ```JSON
 {
