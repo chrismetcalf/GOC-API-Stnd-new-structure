@@ -40,7 +40,7 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
             * [3.1.1 /api/](#311-api)
             * [3.1.2 /developer/](#312-developer)
             * [3.1.3 /data/](#313-data)
-        * [3.2 Human readble intuitive keys](#32-human-readble-intuitive-keys)
+        * [3.2 Human readable intuitive keys](#32-human-readable-intuitive-keys)
         * [3.3 Responses](#33-responses)
             * [3.3.1 Values in Keys](#331-values-in-keys)
             * [3.3.2 Internal Specific Keys](#332-internal-specific-keys)
