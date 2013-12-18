@@ -45,6 +45,8 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 			* [3.3.1 Values in Keys](#331-values-in-keys)
 			* [3.3.2 Internal Specific Keys](#332-internal-specific-keys)
 			* [3.3.3 Metadata is dataset properties](#333-metadata-is-dataset-properties)
+        * [3.4 Caching](#34-caching)
+        * [3.5 Client registration](#35-client-registration)
 * [Examples](#examples)
 
 ## This document
@@ -503,6 +505,16 @@ Metadata should only contain direct properties of the response set, not properti
 
 * Good: `"metadata": { "count": 3, "nextDog": 1237 }`
 * Bad: `"metadata": { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
+
+#### 3.4 Caching
+
+Considering the clients and easy of use for APIs current HTTP delivery models may not be sufficient.  Local caching servers (e.g.: Squid, Varnish) or hosted Content delivery network (CND) can protect a network from bandwidth depending on request patterns.
+
+How the API is structured, how expiry times are calculated and contract minimum delivery are all vital to propper caching.
+
+#### 3.5 Client registration
+
+To ease future tracking for metrics or to identify issues requiering/requesting an api key may be of use.  The request for a key should not request private information (name, email, phone number, etc...)
 
 * [Examples](#examples)
 
