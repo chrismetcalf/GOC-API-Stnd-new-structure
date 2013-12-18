@@ -516,6 +516,6 @@ How the API is structured, how expiry times are calculated and contract minimum 
 
 To ease future tracking for metrics or to identify issues requiring/requesting an api key may be of use.  The request for a key should not request private information (name, email, phone number, etc...)
 
-* [Examples](#examples)
+## Examples
 
 `TODO: Insert examples when the the document is sorted to this point`
