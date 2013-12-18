@@ -126,7 +126,7 @@ One field is required in the metadata varialble, the creation datetime of the re
 
 ```JSON
 {
-    metadata:{ "dateCreated": "2014-01-01T00:00:00+00:00" }
+    "metadata":{ "dateCreated": "2014-01-01T00:00:00+00:00" }
 }
 ```
 
@@ -134,7 +134,7 @@ Where possible describe the dataset validity, licences and publishers and do so 
 
 ```JSON
 {
-    metadata:{
+    "metadata":{
         "name":"Earthquakes >4 for 1992",
         "description":"Catalogue of earthquakes magnitude 4 or greater from 1992 calendar year",
         "keywords":"earthquake data",
@@ -457,5 +457,5 @@ Avoid "node" and "taxonomy term" in your data.
 
 Metadata should only contain direct properties of the response set, not properties of the members of the response set
 
-* Good: `metadata: { "count": 3, "nextDog": 1237 }`
-* Bad: `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
+* Good: `"metadata": { "count": 3, "nextDog": 1237 }`
+* Bad: `"metadata": { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
