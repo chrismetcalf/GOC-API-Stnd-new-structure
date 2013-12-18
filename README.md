@@ -41,8 +41,6 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 			* [Values in Keys](#values-in-keys)
 			* [Internal Specific Keys](#internal-specific-keys)
 			* [Metadata is dataset properties](#metadata-is-dataset-properties)
-		* [Callbacks](#callbacks)
-* [Examples](#examples)
 
 ## This document
 
@@ -265,7 +263,7 @@ Example use:
 
 #### Dataset segmenting metadata
 
-Information relevant to record limits, offsets and indexes should also be included as described in the example response as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "continueFrom" ) are required.
+Information relevant to record limits, offsets and cursors should also be included as described in the example response as a nested element.  Only relevant elements ( "count", "limit", "offset", "page" and "cursor" ) are required.
 
 `TODO: Find a better word for ruleset than what we have below`
 
@@ -282,7 +280,9 @@ Information relevant to record limits, offsets and indexes should also be includ
     },
     ...
 }
+```
 
+```JSON
 {
     "metadata": {
         "resultset": {
@@ -295,8 +295,9 @@ Information relevant to record limits, offsets and indexes should also be includ
     },
     ...
 }
+```
 
-
+```JSON
 {
     "metadata": {
         "resultset": {
@@ -444,8 +445,3 @@ Metadata should only contain direct properties of the response set, not properti
 
 * Good: `metadata: { "count": 3, "nextDog": 1237 }`
 * Bad: `metadata: { "count": 3, "dogs": "1234,1235,1236", "breeds": "bulldog,mixed,poodle" }`
-
-### Callbacks
-### Webhooks
-
-# Examples
