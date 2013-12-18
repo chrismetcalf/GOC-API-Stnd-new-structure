@@ -33,10 +33,13 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 			* [2.1.5 Dataset segmenting metadata](#215-dataset-segmenting-metadata)
 		* [2.2 Structured Error Handling](#22-structured-error-handling)
 		* [2.3 URI argument filtering](#23-uri-argument-filtering)
-		* [2.4 URI structure filtering](#24-uri-structure-filtering)
+		* [2.4 URI path filtering](#24-uri-path-filtering)
 		* [2.5 Versioning](#25-versioning)
 	* [3. Best Practices](#3-best-practices)
         * [3.1 URI Structure](#31-uri-structure)
+            * [3.1.1 /api/](#311-api)
+            * [3.1.2 /developer/](#312-developer)
+            * [3.1.3 /data/](#313-data)
 		* [3.2 Human readble intuitive keys](#32-human-readble-intuitive-keys)
 		* [3.3 Responses](#33-responses)
 			* [3.3.1 Values in Keys](#331-values-in-keys)
@@ -341,7 +344,7 @@ Information relevant to record limits, offsets and cursors should also be includ
 }
 ```
 
-### Structured Error Handling
+### 2.2 Structured Error Handling
 
 Although errors can be represented by HTTP status code alone structured error handling improves the ability to resolve issues for both consumer and maintainer.
 
@@ -377,7 +380,7 @@ Where possible the use the appropriate HTTP status code such as the following:
 * "304 Not Modified" when the resource has not changed since the last reload or will not change
 * "404 Not found" when a requested entity does not exist
 
-### URI argument filtering
+### 2.3 URI argument filtering
 
 Although not mandatory arguments are likely in dynamic and large datasets and follow standard `query=` logic.
 
@@ -385,7 +388,7 @@ Where required for compatibility or to satisfy client requirements query argumen
 
 URL arguments are defined by IETF RFC2396 Section 3 defined, through the document, as "query" (http://www.ietf.org/rfc/rfc2396.txt)
 
-### URI structure filtering
+### 2.4 URI path filtering
 
 URI based filtering, or Clean URLs, can be used to specify arguments to the API in the resource path.  Generally an aesthetic feature Clean URIs aid in caching and general adoption of an API.
 
@@ -403,7 +406,7 @@ To:
 
 Clean URLs can be achieved by various means such as scripting language or http server redirections.
 
-### Versioning
+### 2.5 Versioning
 
 Versioning, from a RESTful approach, is an anti-pattern but often necessary by development practices.  The only requirement in versioning if implemented, the version number must be included in the output metadata to any relevant versioning format.
 
@@ -425,11 +428,13 @@ If an API is to be versioned interoperability and consistency is greatly aided b
 * If numerical major version numbers are required if a change can produce changes in logic
 * If numerical maintain at least one version back
 
-## Best Practices
+## 3. Best Practices
 
 Elements in this section describe prefered implementation to be consistent with existing imeplementation or better methods of implementation.
 
-### URI Structure
+### 3.1 URI Structure
+
+#### 3.1.1 /api/
 
 For consistency with norms APIs should be identified seperatly and consistently.  There are two prevailing methods of distinguising an api from standard content.
 
@@ -443,30 +448,58 @@ The second metod is to define a distinct domain name for the API and appending A
 * http://apis.example.gc.ca/dogs
 * http://apis.example.gc.ca/cats
 
-### Human readable intuitive keys
+#### 3.1.2 /developer/
+
+For consistency API documentation should be segregated into a common location.  Common practice is to maintain a developer's resource, although no fixed standard exist `/developer/` is a consistent term.
+
+Use one of the following as per the institution's inherant web delivery infrastrucutre.
+
+* `/developer/`
+* `/developpeur/`
+* `/développeur/`
+* `/developer-developpeur/`
+* `/developer-développeur/`
+* `/developpeur-developer/`
+* `/développeur-developer/`
+
+#### 3.1.3 /data/
+
+The `/data/` directories are reserved for institutional use.  API development should no use `/data/` as the inherant home for APIs where `/data/apis/` would be acceptable.
+
+This is true for the following directories
+
+* `/data/`
+* `/donnees/`
+* `/données/`
+* `/data-donnees/`
+* `/data-données/`
+* `/donnees-data/`
+* `/données-data/`
+
+### 3.2 Human readable intuitive keys
 
 The easier your data is to read and understand the more likely the data is to be used and correctly.
 
 * Good: `{ "name" : "Bogart", "breed": "Bulldog" }`
 * Bad: `{ "nm": "Bogart", "brd": "Bulldog" }`
 
-### Responses
+### 3.3 Responses
 
 Response design is heavily dictated by data structure but there are better practices and more pitfalls to avoid.
 
-#### Values in Keys
+#### 3.3.1 Values in Keys
 
 * Good: `{ "name" : "Bogart", "breed": "Bulldog" }`
 * Bad: `{ "Bogart": "bulldog" }`
 
-#### Internal Specific Keys
+#### 3.3.2 Internal Specific Keys
 
 Avoid "node" and "taxonomy term" in your data.
 
 * Good: `{ "dog_id": 12345 }`
 * Bad: `{ "did": 12345 }`
 
-#### Metadata is dataset properties
+#### 3.3.3 Metadata is dataset properties
 
 Metadata should only contain direct properties of the response set, not properties of the members of the response set
 
