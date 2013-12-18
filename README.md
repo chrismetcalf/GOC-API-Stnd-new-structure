@@ -8,43 +8,44 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
 </span>
 
 
-* [1. This Document](#1-this-document)
-	* [1.1 Goal](#1.1-goal)
-	* [1.2 Structure](#12-structure)
-	* [1.3 Style Guide](#1.3-style-guide)
+* [This Document](#this-document)
+	* [Goal](#goal)
+	* [Structure](#structure)
+	* [Style Guide](#style-guide)
 * [Web API Implementation](#web-api-implementation)
-	* [Minimum Delivery](#minimum-delivery)
-		* [HTTP Header](#http-header)
-			* [Media Type](#media-type)
-			* [Language](#language)
-		* [HTTP Methods](#http-methods)
-		* [Output](#output)
-			* [Metadata](#metadata)
-			* [Minimum Formats](#minimum-formats)
-			* [Official Languages](#official-languages)
-		* [Documentation](#documentation)
-		* [Registration](#registration)
-	* [Optional Features](#optional-features)
-		* [Dataset segmenting](#dataset-segmenting)
-			* [Limits](#limits)
-			* [Offsets](#offsets)
-			* [Pages](#pages)
-			* [Dataset segmenting metadata](#dataset-segmenting-metadata)
-		* [Structured Error Handling](#structured-error-handling)
-		* [URI argument filtering](#uri-argument-filtering)
-		* [URI structure filtering](#uri-structure-filtering)
-		* [Versioning](#versioning)
-	* [Best Practices](#best-practices)
-        * [URI Structure](#uri-structure)
-		* [Human readble intuitive keys](#human-readble-intuitive-keys)
-		* [Responses](#responses)
-			* [Values in Keys](#values-in-keys)
-			* [Internal Specific Keys](#internal-specific-keys)
-			* [Metadata is dataset properties](#metadata-is-dataset-properties)
+	* [1. Minimum Delivery](#1-minimum-delivery)
+		* [1.1 HTTP Header](#11-http-header)
+			* [1.1.1 Media Type](#111-media-type)
+			* [1.1.2 Language](#112-language)
+		* [1.2 HTTP Methods](#12-http-methods)
+		* [1.3 Output](#13-output)
+			* [1.3.1 Metadata](#131-metadata)
+			* [1.3.2 Minimum Formats](#132-minimum-formats)
+			* [1.3.3 Official Languages](#133-official-languages)
+		* [1.4 Documentation](#14-documentation)
+		* [1.5 Registration](#15-registration)
+	* [2. Optional Features](#2-optional-features)
+		* [2.1 Dataset segmenting](#21-dataset-segmenting)
+			* [2.1.1 Limits](#211-limits)
+			* [2.1.2 Offsets](#212-offsets)
+			* [2.1.3 Pages](#213-pages)
+			* [2.1.4 Dataset segmenting metadata](#214-dataset-segmenting-metadata)
+		* [2.2 Structured Error Handling](#22-structured-error-handling)
+		* [2.3 URI argument filtering](#23-uri-argument-filtering)
+		* [2.4 URI structure filtering](#24-uri-structure-filtering)
+		* [2.5 Versioning](#25-versioning)
+	* [3. Best Practices](#3-best-practices)
+        * [3.1 URI Structure](#31-uri-structure)
+		* [3.2 Human readble intuitive keys](#32-human-readble-intuitive-keys)
+		* [3.3 Responses](#33-responses)
+			* [3.3.1 Values in Keys](#331-values-in-keys)
+			* [3.3.2 Internal Specific Keys](#332-internal-specific-keys)
+			* [3.3.3 Metadata is dataset properties](#333-metadata-is-dataset-properties)
+* [Examples](#examples)
 
-## 1. This document
+## This document
 
-### 1.1 Goal
+### Goal
 The goal of this document is to ensure API delivery across the Government of Canada (GoC) is consistent and up to the highest standards by defining a base level of delivery and only describing expansion when further comment is required.
 
 The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC.
@@ -53,14 +54,14 @@ It's expected that anything not described in this document is to be implemented 
 
 GoC APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
 
-### 1.2 Structure
+### Structure
 This document describes API requirements by priority:
 
 * [Minimum delivery](#minimum-delivery)
 * [Optional features](#optional-features)
 * [Best practices](#best-practices)
 
-### 1.3 Style Guide
+### Style Guide
 For the remainder of this document code, arguments and other undefined technical statements will be `code fenced` as to be easily distinguishable from standard text.
 
 Arguments text will be used as follows:
