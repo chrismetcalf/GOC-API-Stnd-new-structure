@@ -1,0 +1,656 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>README</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+html,body{color:black}*:not('#mkdbuttons'){margin:0;padding:0}#wrapper{font:15px helvetica,arial,freesans,clean,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7;padding:3px;background:#fff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px}p{margin:1em 0}a{color:#4183c4;text-decoration:none}#wrapper{background-color:#fff;padding:30px;margin:15px;font-size:15px;line-height:1.6}#wrapper>*:first-child{margin-top:0 !important}#wrapper>*:last-child{margin-bottom:0 !important}@media screen{#wrapper{box-shadow:0 0 0 1px #cacaca, 0 0 0 4px #eee}}h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.7;cursor:text;position:relative;margin:1em 0 15px;padding:0}h1{font-size:2.5em;border-bottom:1px solid #ddd}h2{font-size:2em;border-bottom:1px solid #eee}h3{font-size:1.5em}h4{font-size:1.2em}h5{font-size:1em}h6{color:#777;font-size:1em}p,blockquote,table,pre{margin:15px 0}ul{padding-left:30px}ol{padding-left:30px}ol li ul:first-of-type{margin-top:0px}hr{background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;border:0 none;color:#ccc;height:4px;margin:15px 0;padding:0}#wrapper>h2:first-child{margin-top:0;padding-top:0}#wrapper>h1:first-child{margin-top:0;padding-top:0}#wrapper>h1:first-child+h2{margin-top:0;padding-top:0}#wrapper>h3:first-child,#wrapper>h4:first-child,#wrapper>h5:first-child,#wrapper>h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1+p,h2+p,h3+p,h4+p,h5+p,h6+p,ul li>:first-child,ol li>:first-child{margin-top:0}dl{padding:0}dl dt{font-size:14px;font-weight:bold;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt>:first-child{margin-top:0}dl dt>:last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd>:first-child{margin-top:0}dl dd>:last-child{margin-bottom:0}blockquote{border-left:4px solid #DDD;padding:0 15px;color:#777}blockquote>:first-child{margin-top:0}blockquote>:last-child{margin-bottom:0}table{border-collapse:collapse;border-spacing:0;font-size:100%;font:inherit}table th{font-weight:bold;border:1px solid #ccc;padding:6px 13px}table td{border:1px solid #ccc;padding:6px 13px}table tr{border-top:1px solid #ccc;background-color:#fff}table tr:nth-child(2n){background-color:#f8f8f8}img{max-width:100%}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px;font-family:Consolas, 'Liberation Mono', Courier, monospace;font-size:12px;color:#333}pre>code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.highlight pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:14px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px;margin:26px 0}pre code,pre tt{background-color:transparent;border:none}.poetry pre{font-family:Georgia, Garamond, serif !important;font-style:italic;font-size:110% !important;line-height:1.6em;display:block;margin-left:1em}.poetry pre code{font-family:Georgia, Garamond, serif !important;word-break:break-all;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;white-space:pre-wrap}sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;vertical-align:super;position:relative}sub{vertical-align:sub;top:-1px}@media print{body{background:#fff}img,pre,blockquote,table,figure{page-break-inside:avoid}#wrapper{background:#fff;border:none}pre code{overflow:visible}}@media screen{body.inverted{color:#eee !important;border-color:#555;box-shadow:none}.inverted #wrapper,.inverted hr,.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted th,.inverted .math,.inverted caption,.inverted dd,.inverted dt,.inverted blockquote{color:#eee !important;border-color:#555;box-shadow:none}.inverted td,.inverted th{background:#333}.inverted pre,.inverted code,.inverted tt{background:#eee !important;color:#111}.inverted h2{border-color:#555555}.inverted hr{border-color:#777;border-width:1px !important}::selection{background:rgba(157,193,200,0.5)}h1::selection{background-color:rgba(45,156,208,0.3)}h2::selection{background-color:rgba(90,182,224,0.3)}h3::selection,h4::selection,h5::selection,h6::selection,li::selection,ol::selection{background-color:rgba(133,201,232,0.3)}code::selection{background-color:rgba(0,0,0,0.7);color:#eeeeee}code span::selection{background-color:rgba(0,0,0,0.7) !important;color:#eeeeee !important}a::selection{background-color:rgba(255,230,102,0.2)}.inverted a::selection{background-color:rgba(255,230,102,0.6)}td::selection,th::selection,caption::selection{background-color:rgba(180,237,95,0.5)}.inverted{background:#0b2531;background:#252a2a}.inverted #wrapper{background:#252a2a}.inverted a{color:#acd1d5}}.highlight .c{color:#998;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k,.highlight .o{font-weight:bold}.highlight .cm{color:#998;font-style:italic}.highlight .cp{color:#999;font-weight:bold}.highlight .c1{color:#998;font-style:italic}.highlight .cs{color:#999;font-weight:bold;font-style:italic}.highlight .gd{color:#000;background-color:#fdd}.highlight .gd .x{color:#000;background-color:#faa}.highlight .ge{font-style:italic}.highlight .gr{color:#a00}.highlight .gh{color:#999}.highlight .gi{color:#000;background-color:#dfd}.highlight .gi .x{color:#000;background-color:#afa}.highlight .go{color:#888}.highlight .gp{color:#555}.highlight .gs{font-weight:bold}.highlight .gu{color:#800080;font-weight:bold}.highlight .gt{color:#a00}.highlight .kc,.highlight .kd,.highlight .kn,.highlight .kp,.highlight .kr{font-weight:bold}.highlight .kt{color:#458;font-weight:bold}.highlight .m{color:#099}.highlight .s{color:#d14}.highlight .na{color:#008080}.highlight .nb{color:#0086B3}.highlight .nc{color:#458;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne,.highlight .nf{color:#900;font-weight:bold}.highlight .nn{color:#555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbb}.highlight .mf,.highlight .mh,.highlight .mi,.highlight .mo{color:#099}.highlight .sb,.highlight .sc,.highlight .sd,.highlight .s2,.highlight .se,.highlight .sh,.highlight .si,.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999}.highlight .vc,.highlight .vg,.highlight .vi{color:#008080}.highlight .il{color:#099}.highlight .gc{color:#999;background-color:#EAF2F5}.type-csharp .highlight .k,.type-csharp .highlight .kt{color:#00F}.type-csharp .highlight .nf{color:#000;font-weight:normal}.type-csharp .highlight .nc{color:#2B91AF}.type-csharp .highlight .nn{color:#000}.type-csharp .highlight .s,.type-csharp .highlight .sc{color:#A31515}body.dark #wrapper{background:transparent !important;box-shadow:none !important}
+
+</style>
+
+</head>
+<body class="normal">
+  <div id="wrapper">
+      <h1 id="gcwebapistandards">GC Web API Standards</h1>
+
+<p><span color='red'><br/>
+Working requirements for Government of Canada (GoC) Web Application Programming Interfaces (API)s. </p>
+
+<p>Presently a draft from the TBS Web Interoperability Working Group with the intent to deliver a first working draft by the next Web Managers Council. RFC to [WET - GC Web API Standards]
+</span> </p>
+
+<ul>
+<li><a href="#this-document">This Document</a>
+
+<ul>
+<li><a href="#goal">Goal</a></li>
+<li><a href="#structure">Structure</a></li>
+<li><a href="#style-guide">Style Guide</a></li>
+</ul></li>
+<li><a href="#web-api-implementation">Web API Implementation</a>
+
+<ul>
+<li><a href="#1-minimum-delivery">1. Minimum Delivery</a>
+
+<ul>
+<li><a href="#11-http-header">1.1 HTTP Header</a>
+
+<ul>
+<li><a href="#111-media-type">1.1.1 Media Type</a></li>
+<li><a href="#112-language">1.1.2 Language</a></li>
+</ul></li>
+<li><a href="#12-http-methods">1.2 HTTP Methods</a></li>
+<li><a href="#13-output">1.3 Output</a>
+
+<ul>
+<li><a href="#131-metadata">1.3.1 Metadata</a></li>
+<li><a href="#132-minimum-formats">1.3.2 Minimum Formats</a></li>
+<li><a href="#133-official-languages">1.3.3 Official Languages</a></li>
+</ul></li>
+<li><a href="#14-documentation">1.4 Documentation</a></li>
+<li><a href="#15-registration">1.5 Registration</a></li>
+</ul></li>
+<li><a href="#2-optional-features">2. Optional Features</a>
+
+<ul>
+<li><a href="#21-dataset-segmenting">2.1 Dataset segmenting</a>
+
+<ul>
+<li><a href="#211-limits">2.1.1 Limits</a></li>
+<li><a href="#212-offsets">2.1.2 Offsets</a></li>
+<li><a href="#213-pages">2.1.3 Pages</a></li>
+<li><a href="#214-cursor">2.1.4 Cursor</a></li>
+</ul></li>
+<li><a href="#215-dataset-segmenting-metadata">2.1.5 Dataset segmenting metadata</a></li>
+</ul></li>
+<li><a href="#22-structured-error-handling">2.2 Structured Error Handling</a></li>
+<li><a href="#23-uri-argument-filtering">2.3 URI argument filtering</a></li>
+<li><a href="#24-uri-path-filtering">2.4 URI path filtering</a></li>
+<li><a href="#25-versioning">2.5 Versioning</a></li>
+</ul></li>
+<li><a href="#3-best-practices">3. Best Practices</a>
+
+<ul>
+<li><a href="#31-uri-structure">3.1 URI Structure</a>
+
+<ul>
+<li><a href="#311-api">3.1.1 /api/</a></li>
+<li><a href="#312-developer">3.1.2 /developer/</a></li>
+<li><a href="#313-data">3.1.3 /data/</a></li>
+</ul></li>
+<li><a href="#32-human-readable-intuitive-keys">3.2 Human readable intuitive keys</a></li>
+<li><a href="#33-responses">3.3 Responses</a>
+
+<ul>
+<li><a href="#331-values-in-keys">3.3.1 Values in Keys</a></li>
+<li><a href="#332-internal-specific-keys">3.3.2 Internal Specific Keys</a></li>
+<li><a href="#333-metadata-is-dataset-properties">3.3.3 Metadata is dataset properties</a></li>
+</ul></li>
+<li><a href="#34-caching">3.4 Caching</a></li>
+<li><a href="#35-client-registration">3.5 Client registration</a></li>
+</ul></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+
+<h2 id="thisdocument">This document</h2>
+
+<h3 id="goal">Goal</h3>
+
+<p>The goal of this document is to ensure API delivery across the Government of Canada (GoC) is consistent and up to the highest standards by defining a base level of delivery and only describing expansion when further comment is required. </p>
+
+<p>The intent is to maintain a living document that adapts to changes in the landscape of Web API delivery but at the same time being mindful of established and mandated standards presently adopted inside and outside the GoC. </p>
+
+<p>It&#8217;s expected that anything not described in this document is to be implemented from best practices with an eye to interoperability, maintainability and future direction. Gaps, errors or new best practices should be brought to the Web Standards Office (WSO) Web Interoperability Working Group (WIWG). </p>
+
+<p>GoC APIs aim to balance a truly RESTful API interface with a positive developer experience (DX). </p>
+
+<h3 id="structure">Structure</h3>
+
+<p>This document describes API requirements by priority: </p>
+
+<ul>
+<li><a href="#1-minimum-delivery">Minimum delivery</a></li>
+<li><a href="#2-optional-features">Optional features</a></li>
+<li><a href="#3-best-practices">Best practices</a></li>
+</ul>
+
+<h3 id="styleguide">Style Guide</h3>
+
+<p>For the remainder of this document code, arguments and other undefined technical statements will be <code>code fenced</code> as to be easily distinguishable from standard text. </p>
+
+<p>Arguments text will be used as follows:<br/>
+* Arguments stated as a header will be followed by a colon &#8216;:&#8217; as <code>argument:</code><br/>
+* Arguments stated as a URI argument will be followed by an the equals sign &#8216;=&#8217; as <code>argument=</code><br/>
+* Arguments stated as a URI path element will be bracketed with forward slashes &#8216;/&#8217; as <code>/argument/</code><br/>
+* Arguments stated as a file format extension will be prefaced with a period &#8216;.&#8217; as <code>.arg</code> </p>
+
+<p>Draft comments are to be bracketed with the following.<br/>
+<code>TODO:</code>, <code>NOTE:</code> and <code>ISSUE:</code> </p>
+
+<h2 id="webapiimplementation">Web API Implementation</h2>
+
+<p>Web APIs in the GoC are to be RESTful as described by Roy Thomas Fielding&#8217;s dissertation &#8220;Architectural Styles and the Design of Network-based Software Architectures&#8221; (2000) adapted to mandated minimums for the GoC and design choices in support of Web Interoperability. </p>
+
+<p>The intent is not to limit development to the prescribed minimums but to ensure that GoC Web APIs behave consistently. Any and all other requirements or options not described in this document may be implemented at the discretion of the API owner so long as the <a href="#minimum-delivery">minimum delivery</a> and delivery standard of <a href="#optional-features">optional features</a> are met. </p>
+
+<h3 id="1.minimumdelivery">1. Minimum delivery</h3>
+
+<p>Interoperability depends greatly on common implementation at the very least a minimum platform. This his section describe mandatory elements in input, output and maintenance that must be found in a GoC API and behave as described. </p>
+
+<h4 id="1.1httpheader">1.1 HTTP Header</h4>
+
+<p>Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol (HTTP). Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported. Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation. </p>
+
+<p>The minimum header variables to be supported are media type through <code>Accept:</code> and language through <code>Accept-Language:</code>. Supplemental header variables in request (e.g.: <code>Accept-Charset:</code>, <code>Accept-Encoding:</code>) or response (e.g.: <code>Content-Language:</code>, <code>Content-Length:</code>) can aid in delivery and efficiency where appropriate but are not required. <span class="critic criticcomment"> You mention request headers here, but don&#8217;t specify any response headers. I&#8217;d suggest including at least a <code>Content-type:</code> response header with the appropriate mime type </span> </p>
+
+<p>Supplemental methods of specifying language or output formats such as <a href="#23-uri-argument-filtering">URI argument filtering</a> or <a href="#24-uri-path-filtering">URI path filtering</a> may override header variables when required. </p>
+
+<h5 id="1.1.1mediatype">1.1.1 Media Type</h5>
+
+<p>Output format, commonly known as media type, from a Web API are historically described by Multipurpose Internet Mail Extensions (MIME) types registered with the Internet Assigned Numbers Authority (IANA)&#8217;s media type catalogue. For most standard file types IANA&#8217;s media type catalogue will provide the appropriate type definition. </p>
+
+<p>The <code>Accept:</code> header is described by W3C RFC2616 Section 14.1 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1) </p>
+
+<p>The media types are defined by by IANA.org (http://www.iana.org/assignments/media-types/media-types.xhtml) </p>
+
+<h5 id="1.1.2language">1.1.2 Language</h5>
+
+<p>The <code>Accept-Language:</code> header is described by W3C RFC2616 Section 14.4 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) </p>
+
+<p>Languages are to be defined by the W3C recommended BCP&#8211;47 (http://www.w3.org/International/core/langtags/#bcp47). </p>
+
+<h4 id="1.2httpmethods">1.2 HTTP Methods</h4>
+
+<p>HTTP Methods are often described in APIs as verbs. Verbs refer to standard actions taken on data, those standard verbs are (POST, GET, PUT and DELETE). </p>
+
+<p>Assuming dogs is a list of all dogs, dog id 1234 is an instance of dog named &#8220;Bogart&#8221; and instance 4321 is &#8220;Shreddies&#8221; </p>
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">HTTP METHOD</th>
+	<th style="text-align:left;">POST</th>
+	<th style="text-align:left;">GET</th>
+	<th style="text-align:left;">PUT</th>
+	<th style="text-align:left;">DELETE</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">CRUD OP</td>
+	<td style="text-align:left;">CREATE</td>
+	<td style="text-align:left;">READ</td>
+	<td style="text-align:left;">UPDATE</td>
+	<td style="text-align:left;">DELETE</td>
+</tr>
+<tr>
+	<td style="text-align:left;">/dogs</td>
+	<td style="text-align:left;">Create new dogs</td>
+	<td style="text-align:left;">List dogs</td>
+	<td style="text-align:left;">Bulk update</td>
+	<td style="text-align:left;">Delete all dogs</td>
+</tr>
+<tr>
+	<td style="text-align:left;">/dogs/1234</td>
+	<td style="text-align:left;">Error</td>
+	<td style="text-align:left;">Show Bogart</td>
+	<td style="text-align:left;">update Bogart</td>
+	<td style="text-align:left;">Delete Bogart</td>
+</tr>
+<tr>
+	<td style="text-align:left;">/dogs/4321</td>
+	<td style="text-align:left;">Error</td>
+	<td style="text-align:left;">Show Shreddies</td>
+	<td style="text-align:left;">update Shreddies</td>
+	<td style="text-align:left;">Delete Shreddies</td>
+</tr>
+</tbody>
+</table>
+
+<p><span class="critic criticcomment"> For POST to the root resource, you state &#8220;Create new dogs&#8221;. Does that mean that to create a single dog you need to pass a &#8220;set of one dog object&#8221;, or will you also accept a single dog object? Basically, <code>POST /dogs [{ &quot;name&quot; : &quot;Maggie&quot; }]</code> vs <code>POSTS /dogs { &quot;name&quot; : &quot;Maggie&quot; }</code>.</span> </p>
+
+<p>HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) </p>
+
+<h3 id="1.3output">1.3 Output</h3>
+
+<h4 id="1.3.1metadata">1.3.1 Metadata</h4>
+
+<p>Representing data about the returned dataset will be required for proper operation of certain features and describing the data provided. </p>
+
+<p>To avoid collision with the data and general interoperability metadata is to be described in a variable in the response. </p>
+
+<p>Two fields are required in the metadata variable. </p>
+
+<ul>
+<li>The creation date-time of the response in ISO 8601 date-time format with timezone.</li>
+<li>The licenses relevant to the dataset presented.</li>
+</ul>
+
+<p><span class="critic criticcomment"> I think this is one area where my opinion still diverges from yours. Dataset metadata and data records themselves are orthoganal, and I don&#8217;t think they should be mixed in the API results. We did this with our SODA 1.0 API and it was a mess. Data is data and metadata is metadata, and they should be kept separate. I&#8217;d recommend one of two options: - Move the metadata into relevant HTTP standard or <code>X-</code> API-specific headers. For example, use the <code>Last-Modified</code> header for the last time the data was updated and an <code>X-License</code> header for data licenses. - Create a new endpoint like <code>/dogs/$metadata</code> or <code>/metadata/dogs</code> that returns a document containing all of the metadata, and relate it via a URI in an <code>X-</code> header. </span></p>
+<pre><code class="JSON">{
+    &quot;metadata&quot;:
+    {
+        &quot;dateCreated&quot;: &quot;2014-01-01T00:00:00+00:00&quot;,
+        &quot;licenses&quot;:
+        {
+            &quot;http://example.gc.ca/license-eng.php&quot;,
+            &quot;http://data.gc.ca/eng/open-government-licence-canada&quot;
+        }
+    }
+}</code></pre>
+
+<p>Where possible describe the dataset validity, additional licenses and publishers with Schema.org as the namespace. This is consistent and interoperable with RDFa&#8217;s usage in the Standard on Web Interoperability Appendix E: HTML data requirements (http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=25875&amp;section=text)</p>
+<pre><code class="JSON">{
+    &quot;metadata&quot;:{
+        &quot;name&quot;:&quot;Earthquakes &gt;4 for 1992&quot;,
+        &quot;description&quot;:&quot;Earthquakes magnitude 4 or greater, 1992 calendar year&quot;,
+        &quot;keywords&quot;:&quot;earthquake data&quot;,
+        &quot;dateModified&quot;:&quot;1867-07-01T00:00:01+00:00&quot;,
+        &quot;publisher&quot;: &quot;Government of Canada&quot;,
+        &quot;dateCreated&quot;:&quot;2014-01-01T00:00:00+00:00&quot;
+    }
+}</code></pre>
+
+<p>` </p>
+
+<p>Elements used in this description: </p>
+
+<ul>
+<li>http://schema.org/name</li>
+<li>http://schema.org/description</li>
+<li>http://schema.org/keywords</li>
+<li>http://schema.org/dateModified</li>
+<li>http://schema.org/publisher</li>
+<li>http://schema.org/dateCreated</li>
+</ul>
+
+<p>Mandated use of ISO 8601 in the TBS Standard on Metadata (http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18909&amp;section=text#sec9.4) </p>
+
+<p>Use of timezones in ISO 8601 (http://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators) </p>
+
+<h4 id="1.3.2minimumformats">1.3.2 Minimum Formats</h4>
+
+<p>Leading API frameworks and present day implementation of APIs delivery two output formats, JSON and XML. Trends may be leading to JSON only APIs but development tools and applications may still support only one of the two options. To maximize the client base a GoC API must output both JSON and XML at a minimum. </p>
+
+<p>https://www.google.com/trends/explore?q=xml+api#q=xml%20api%2C%20json%20api&amp;cmpt=q </p>
+
+<h4 id="1.3.3officiallanguages">1.3.3 Official Languages</h4>
+
+<p>All English or French content returned as data are to be nested with BCP&#8211;47 language codes used as keys. If the content is unilingual offer the alternate language in metadata. </p>
+
+<p>Bilingual</p>
+<pre><code class="JSON">{
+    &quot;size&quot;: {
+         &quot;fr&quot;: &quot;Gros&quot;,
+         &quot;en&quot;: &quot;Large&quot;
+    },
+    &quot;type&quot;: {
+         &quot;fr&quot;: &quot;Chien&quot;,
+         &quot;en&quot;: &quot;Dog&quot;
+    }
+}</code></pre>
+
+<p>French Only</p>
+<pre><code class="JSON">{
+    &quot;metadata&quot;: { &quot;en&quot;: &quot;http://example.gc.ca/apis/dogs&quot; },
+    &quot;size&quot;: {
+         &quot;fr&quot;: &quot;Gros&quot;
+    },
+    &quot;type&quot;: {
+         &quot;fr&quot;: &quot;Chien&quot;
+    }
+}</code></pre>
+
+<p><span class="critic criticcomment"> I&#8217;m not sure what the metadata connotes in this case. It&#8217;s row-level metadata, and it points at the root resource. We don&#8217;t document row-level metadata anywhere else in this document </span> </p>
+
+<p>English Only</p>
+<pre><code class="JSON">{
+    &quot;metadata&quot;: { &quot;fr&quot;: &quot;http://exemple.gc.ca/apis/chiens&quot; },
+    &quot;size&quot;: {
+         &quot;en&quot;: &quot;Large&quot;
+    },
+    &quot;type&quot;: {
+         &quot;en&quot;: &quot;Dog&quot;
+    }
+}</code></pre>
+
+<p>Bilingual, English and French endpoints must all offer bilingual, French or English results if requested by <code>Accept-Language:</code>, <code>query-parameter=</code> or other means. </p>
+
+<p>The calculated language (e.g.: <code>Accept-Language:</code> or query parameters) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API. <span class="critic criticcomment"> Not sure what you mean here. It sounds like this would be a way for the Quebec government to force an HTML page to be returned in French, even if I asked for English. But if I were to go to their site in a web browser and request English, they&#8217;d give me English </span></p>
+<pre><code>Accept: text/html
+Accept-Language: en
+URL: http://exemple.gc.ca/api/chiens</code></pre>
+
+<p>The scenario above could return English content on the French <code>http://exemple.gc.ca/api/chiens</code> page. </p>
+
+<h3 id="1.4documentation">1.4 Documentation</h3>
+
+<p><code>TODO: Known gap, to be complete early Jan</code> <span class="critic criticcomment"> Glad to help on this section once you start thinking about how you want to set documentation requirements </span> </p>
+
+<h3 id="1.5registration">1.5 Registration</h3>
+
+<p><code>TODO: Known gap, to be complete early Jan</code> <span class="critic criticcomment"> Glad to help on this section once you start thinking about how you want to set registration requirements </span> </p>
+
+<h2 id="2.optionalfeatures">2. Optional features</h2>
+
+<p>Beyond the base delivery of an API features can help clients better access and use the data. Elements in this section describe mandatory implementation of the the optional elements. </p>
+
+<h3 id="2.1datasetsegmenting">2.1 Dataset segmenting</h3>
+
+<p>Limits are nearly always mandatory, only limited size datasets are safe to to implement without a default and maximum limit. These elements are strongly recommended where possible and relevant. A second, but no less important, consideration for the client creates requirements such as mobile device limitations and dataset size. </p>
+
+<h4 id="2.1.1limits">2.1.1 Limits</h4>
+
+<ul>
+<li>If no limit is specified, return results with a default limit.
+
+<ul>
+<li>Sanity check to a reasonable return size</li>
+<li>Sanity check to a reasonable execution time</li>
+<li>For small datasets limits may exceed row count <span class="critic criticcomment"> Maybe this is better written as &quot;it&#8217;s OK for limits passed by clients to be larger than the total row count of the dataset? </span></li>
+</ul></li>
+<li>Limits are row / object limits
+
+<ul>
+<li>The organization decides what is to be in a row or object</li>
+<li>Limits apply to the topmost logical row or object</li>
+</ul></li>
+</ul>
+
+<p>Limits are to be defined as the singular <code>limit=</code> followed by an integer. </p>
+
+<h4 id="2.1.2offsets">2.1.2 Offsets</h4>
+
+<p>Offsets apply to the structured data returned from the API distinct from internal indexing in the data. For the purpose of explanation we&#8217;ll assume rows/objects return are numbered 1, 2, 3, 4, 5 to the limit. </p>
+
+<p>The general logic is to shift to what would be the subsequent entry by the offset amount. For a query that returns 1,2,3 an offset of 1 should return 2,3,4. </p>
+
+<p>Offsets are to be defined as the singular <code>offset=</code> followed by an integer. </p>
+
+<p>Example use: </p>
+
+<ul>
+<li>http://example.gc.ca/api/dataset?limit=25&amp;offset=75
+
+<ul>
+<li>For row is base 1 rows 76 through 100 should be returned</li>
+</ul></li>
+</ul>
+
+<h4 id="2.1.3pages">2.1.3 Pages</h4>
+
+<p>Much like offsets defined above <code>page=</code> is an offset incremented by the <code>limit=</code> argument. If <code>limit=</code> is set to 25 and <code>page=</code> is set to 2 the total offset is 50, if the <code>page=</code> is set to 3 the total offset is 150. </p>
+
+<p>Example use: </p>
+
+<ul>
+<li>http://example.gc.ca/api/dataset?limit=25&amp;page=3
+
+<ul>
+<li>For row is base 1 rows 76 through 100 should be returned</li>
+</ul></li>
+</ul>
+
+<h4 id="2.1.4cursor">2.1.4 Cursor</h4>
+
+<p><code>cursor=</code> is an offset with a value based on the sort order of results returned. </p>
+
+<p>Use <code>cursor=</code> to reliably iterate over results without risk of skipping or receiving duplicate rows/objects due to insertions/deletions. </p>
+
+<p>The string value use with <code>cursor=</code> is returned in the metadata of each response when any rows/objects are returned. Typically it is a single value copied from the last row/object, and could be a date, name, internal id or any other sortable type. </p>
+
+<p>Example use:<br/>
+* http://example.gc.ca/api/dataset?limit=25&amp;cursor=20130101.010101
+ * For 25 rows following the row containing the sort order value &#8220;20130101.010101&#8221; </p>
+
+<h4 id="2.1.5datasetsegmentingmetadata">2.1.5 Dataset segmenting metadata</h4>
+
+<p>Information relevant to record limits, offsets and cursors should also be included as described in the example response as a nested element. Only relevant elements (&#8220;count&#8221;, &#8220;limit&#8221;, &#8220;offset&#8221;, &#8220;page&#8221; and &#8220;cursor&#8221;) are required.</p>
+<pre><code class="JSON">{
+    &quot;metadata&quot;: {
+        &quot;resultSet&quot;: {
+            &quot;count&quot;: 25,
+            &quot;limit&quot;: 25,
+            &quot;page&quot;: 3,
+            &quot;offset&quot;: 75,
+            &quot;cursor&quot;: &quot;sam100890032&quot;
+        }
+    }
+}</code></pre>
+<pre><code class="JSON">{
+    &quot;metadata&quot;: {
+        &quot;resultSet&quot;: {
+            &quot;count&quot;: 100,
+            &quot;limit&quot;: 100,
+            &quot;page&quot;: 2,
+            &quot;offset&quot;: 200,
+            &quot;cursor&quot;: &quot;Smith, John&quot;
+        }
+    }
+}</code></pre>
+<pre><code class="JSON">{
+    &quot;metadata&quot;: {
+        &quot;resultSet&quot;: {
+            &quot;count&quot;: 18,
+            &quot;limit&quot;: 25,
+            &quot;cursor&quot;: &quot;20130101.010101&quot;
+        }
+    }
+}</code></pre>
+
+<p><span class="critic criticcomment"> As I suggewsted above, I&#8217;d include these as <code>X-</code>headers instead of as a metadata object </span>
+<span class="critic criticcomment"> I&#8217;d also include a <code>X-Next</code> URI header </span> </p>
+
+<h3 id="2.2structurederrorhandling">2.2 Structured Error Handling</h3>
+
+<p>Although errors can be represented by HTTP status code alone structured error handling improves the ability to resolve issues for both consumer and maintainer. </p>
+
+<p>Research into common practice provides the following error structure:<br/>
+* Error responses are to be an HTTP status code<br/>
+* The same code is to be included<br/>
+* A message for the developer<br/>
+* A message for the end-user (when appropriate)<br/>
+* An internal error code (corresponding to an internal code if available)<br/>
+* A link where developers can find more information (if available) </p>
+
+<p>In JSON format</p>
+<pre><code class="JSON">{
+    &quot;status&quot; : &quot;400&quot;,
+    &quot;developerMessage&quot; : &quot;Verbose, plain language description of the problem. Provide developers
+    suggestions about how to solve their problems here&quot;,
+    &quot;userMessage&quot; : &quot;This is a message that can be passed along to end-users, if needed.&quot;,
+    &quot;errorCode&quot; : &quot;444444&quot;,
+    &quot;more info&quot; : &quot;http://example.gc.ca/developer/path/to/help/for/444444&quot;,
+}</code></pre>
+
+<p>The three base states to recognize are success, improper request (client error) and internal server error (API error). These better defined by the following HTTP Status codes: </p>
+
+<ul>
+<li>200 - OK</li>
+<li>400 - Bad Request</li>
+<li>500 - Internal Server Error</li>
+</ul>
+
+<p>Where possible the use the appropriate HTTP status code such as the following: </p>
+
+<ul>
+<li>&#8220;304 Not Modified&#8221; when the resource has not changed since the last reload or will not change</li>
+<li>&#8220;404 Not found&#8221; when a requested entity does not exist</li>
+</ul>
+
+<h3 id="2.3uriargumentfiltering">2.3 URI argument filtering</h3>
+
+<p>Although not mandatory arguments are likely in dynamic and large datasets and follow standard <code>query=</code> logic. </p>
+
+<p>Where required for compatibility or to satisfy client requirements query arguments can be used to override header variables such as <code>Accept:</code> or <code>Accept-Language:</code>. </p>
+
+<p>URL arguments are defined by IETF RFC2396 Section 3 defined, through the document, as &#8220;query&#8221; (http://www.ietf.org/rfc/rfc2396.txt) </p>
+
+<h3 id="2.4uripathfiltering">2.4 URI path filtering</h3>
+
+<p>URI based filtering, or Clean URLs, can be used to specify arguments to the API in the resource path. Generally an aesthetic feature Clean URIs aid in caching and general adoption of an API. </p>
+
+<p>Caching is best served when arguments, or URIs in general, are consistently represented. When encoding arguments in the URI be consistent in the ordering and value representation preferably in data logical order. </p>
+
+<p>Formats in Clean URL are defined as extensions to the virtual file as one would on a traditional file in a filesystem. To define an XML or JSON file would be defined as /path/file.xml and /path/file.json. </p>
+
+<p>An API defined with traditional URL arguments would be converted from: </p>
+
+<p><code>http://example.gc.ca/api/resource?argument_one=vale_one&amp;argument_two=value_two&amp;data_layout=listformat=json</code> </p>
+
+<p>To: </p>
+
+<p><code>http://example.gc.ca/api/resource/value_one/value_two/list.list</code> </p>
+
+<p>Clean URLs can be achieved by various means such as scripting language or http server redirections. </p>
+
+<h3 id="2.5versioning">2.5 Versioning</h3>
+
+<p>Versioning, from a RESTful approach, is an anti-pattern but often necessary by development practices. The only requirement in versioning, if implemented, is the inclusion of the version in the output metadata to any relevant versioning format.</p>
+<pre><code class="JSON">{
+    &quot;metadata&quot;: {
+        &quot;version&quot;: &quot;3.1.23a&quot;
+    }
+}</code></pre>
+
+<p>If an API is to be versioned interoperability and consistency is greatly aided by the following: </p>
+
+<ul>
+<li>Limit endpoint changes unless necessary</li>
+<li>Create endpoint for needs by the need over numerical where appropriate (e.g.: hardware dependance, client needs)</li>
+<li>Versions should be integers not decimal numbers to avoid galloping endpoints and prefixed with ‘v’ for intuitive identification
+
+<ul>
+<li>Good: <code>v1, v2, v3</code></li>
+<li>Bad: <code>v-1.1, v1.2, 1.3</code></li>
+</ul></li>
+<li>If numerical major version numbers are required if a change can produce changes in logic</li>
+<li>If numerical maintain at least one version back</li>
+</ul>
+
+<h2 id="3.bestpractices">3. Best Practices</h2>
+
+<p>Elements in this section describe preferred implementation to be consistent with existing implementation or better methods of implementation. </p>
+
+<h3 id="3.1uristructure">3.1 URI Structure</h3>
+
+<h4 id="3.1.1api">3.1.1 /api/</h4>
+
+<p>For consistency with norms APIs should be identified separately and consistently. There are two prevailing methods of distinguishing an api from standard content. </p>
+
+<p>The first is to contain API endpoints in a set directory at the root of the resource identifier (RI). This lowers the chances the API endpoint moves due to later needs for the same root RI. Using the plural &#8220;apis&#8221; is consistent with RI based. </p>
+
+<ul>
+<li>http://example.gc.ca/apis/dogs</li>
+<li>http://example.gc.ca/apis/cats</li>
+</ul>
+
+<p>The second method is to define a distinct domain name for the API and appending APIs after root. To be consistent with RI structure the use of &#8216;apis&#8217; would be advised. </p>
+
+<ul>
+<li>http://apis.example.gc.ca/dogs</li>
+<li>http://apis.example.gc.ca/cats</li>
+</ul>
+
+<h4 id="3.1.2developer">3.1.2 /developer/</h4>
+
+<p>For consistency API documentation should be segregated into a common location. Common practice is to maintain a developer&#8217;s resource, although no fixed standard exist <code>/developer/</code> is a consistent term. </p>
+
+<p>Use one of the following as per the institution&#8217;s inherent web delivery infrastructure. </p>
+
+<ul>
+<li><code>/developer/</code></li>
+<li><code>/developpeur/</code></li>
+<li><code>/développeur/</code></li>
+<li><code>/developer-developpeur/</code></li>
+<li><code>/developer-développeur/</code></li>
+<li><code>/developpeur-developer/</code></li>
+<li><code>/développeur-developer/</code></li>
+</ul>
+
+<p><span class="critic criticcomment"> I don&#8217;t know how it would jive with your translation requirements, but I&#8217;d really encourage one canonical path that&#8217;s the same for all sites. Then any developer just knows to go to /developer or /api to look for documentation. Otherwise it&#8217;ll get very confusing. </span> </p>
+
+<h4 id="3.1.3data">3.1.3 /data/</h4>
+
+<p>The <code>/data/</code> directories are reserved for institutional use. API development should no use <code>/data/</code> as the inherent home for APIs where <code>/data/apis/</code> would be acceptable. </p>
+
+<p>This is true for the following directories </p>
+
+<ul>
+<li><code>/data/</code></li>
+<li><code>/donnees/</code></li>
+<li><code>/données/</code></li>
+<li><code>/data-donnees/</code></li>
+<li><code>/data-données/</code></li>
+<li><code>/donnees-data/</code></li>
+<li><code>/données-data/</code></li>
+</ul>
+
+<p><span class="critic criticcomment"> In the open data context, international organizations have gotten pretty comfortable with just using the english word &#8216;data&#8217; or &#8216;open data&#8217; in most places. Might reduce the need to have so many different confusing options </span> </p>
+
+<h3 id="3.2humanreadableintuitivekeys">3.2 Human readable intuitive keys</h3>
+
+<p>The easier your data is to read and understand the more likely the data is to be used and correctly. </p>
+
+<ul>
+<li>Good: <code>{ &quot;name&quot; : &quot;Bogart&quot;, &quot;breed&quot;: &quot;Bulldog&quot; }</code></li>
+<li>Bad: <code>{ &quot;nm&quot;: &quot;Bogart&quot;, &quot;brd&quot;: &quot;Bulldog&quot; }</code></li>
+</ul>
+
+<h3 id="3.3responses">3.3 Responses</h3>
+
+<p>Response design is heavily dictated by data structure but there are better practices and more pitfalls to avoid. </p>
+
+<h4 id="3.3.1valuesinkeys">3.3.1 Values in Keys</h4>
+
+<ul>
+<li>Good: <code>{ &quot;name&quot; : &quot;Bogart&quot;, &quot;breed&quot;: &quot;Bulldog&quot; }</code></li>
+<li>Bad: <code>{ &quot;Bogart&quot;: &quot;bulldog&quot; }</code></li>
+</ul>
+
+<h4 id="3.3.2internalspecifickeys">3.3.2 Internal Specific Keys</h4>
+
+<p>Avoid &#8220;node&#8221; and &#8220;taxonomy term&#8221; in your data. </p>
+
+<ul>
+<li>Good: <code>{ &quot;dog_id&quot;: 12345 }</code></li>
+<li>Bad: <code>{ &quot;did&quot;: 12345 }</code></li>
+</ul>
+
+<h4 id="3.3.3metadataisdatasetproperties">3.3.3 Metadata is dataset properties</h4>
+
+<p>Metadata should only contain direct properties of the response set, not properties of the members of the response set </p>
+
+<ul>
+<li>Good: <code>&quot;metadata&quot;: { &quot;count&quot;: 3, &quot;nextDog&quot;: 1237 }</code></li>
+<li>Bad: <code>&quot;metadata&quot;: { &quot;count&quot;: 3, &quot;dogs&quot;: &quot;1234,1235,1236&quot;, &quot;breeds&quot;: &quot;bulldog,mixed,poodle&quot; }</code></li>
+</ul>
+
+<h4 id="3.4caching">3.4 Caching</h4>
+
+<p>Considering the clients and easy of use for APIs current HTTP delivery models may not be sufficient. Local caching servers (e.g.: Squid, Varnish) or hosted Content delivery network (CND) can protect a network from bandwidth depending on request patterns. </p>
+
+<p>How the API is structured, how expiry times are calculated and contract minimum delivery are all vital to proper caching. </p>
+
+<h4 id="3.5clientregistration">3.5 Client registration</h4>
+
+<p>To ease future tracking for metrics or to identify issues requiring/requesting an api key may be of use. The request for a key should not request private information (name, email, phone number, etc&#8230;) </p>
+
+<h2 id="examples">Examples</h2>
+
+<p><code>TODO: Insert examples when the the document is sorted to this point</code></p>
+<!-- ##END MARKED WRAPPER## -->
+    </div>
+</body>
+</html>
