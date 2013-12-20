@@ -4,7 +4,7 @@ GC Web API Standards
 <span color='red'>
 Working requirements for Government of Canada (GoC) Web Application Programming Interfaces (API)s.
 
-Presently a draft from the TBS Web Interoperability Working Group with the intent to deliver a first working draft by the next Web Managers Council.  RFC to [WET - GC Web API Standards](https://github.com/wet-boew/wet-boew-api-standards).
+Presently a draft from the TBS Web Interoperability Working Group with the intent to deliver a first working draft by the next Web Managers Council.  RFC to [WET - GC Web API Standards]
 </span>
 
 
@@ -30,23 +30,23 @@ Presently a draft from the TBS Web Interoperability Working Group with the inten
             * [2.1.2 Offsets](#212-offsets)
             * [2.1.3 Pages](#213-pages)
             * [2.1.4 Cursor](#214-cursor)
-            * [2.1.5 Dataset segmenting metadata](#215-dataset-segmenting-metadata)
-        * [2.2 Structured Error Handling](#22-structured-error-handling)
-        * [2.3 URI argument filtering](#23-uri-argument-filtering)
-        * [2.4 URI path filtering](#24-uri-path-filtering)
-        * [2.5 Versioning](#25-versioning)
-    * [3. Best Practices](#3-best-practices)
-        * [3.1 URI Structure](#31-uri-structure)
-            * [3.1.1 /api/](#311-api)
-            * [3.1.2 /developer/](#312-developer)
-            * [3.1.3 /data/](#313-data)
-        * [3.2 Human readable intuitive keys](#32-human-readable-intuitive-keys)
-        * [3.3 Responses](#33-responses)
-            * [3.3.1 Values in Keys](#331-values-in-keys)
-            * [3.3.2 Internal Specific Keys](#332-internal-specific-keys)
-            * [3.3.3 Metadata is dataset properties](#333-metadata-is-dataset-properties)
-        * [3.4 Caching](#34-caching)
-        * [3.5 Client registration](#35-client-registration)
+          * [2.1.5 Dataset segmenting metadata](#215-dataset-segmenting-metadata)
+      * [2.2 Structured Error Handling](#22-structured-error-handling)
+      * [2.3 URI argument filtering](#23-uri-argument-filtering)
+      * [2.4 URI path filtering](#24-uri-path-filtering)
+      * [2.5 Versioning](#25-versioning)
+  * [3. Best Practices](#3-best-practices)
+      * [3.1 URI Structure](#31-uri-structure)
+          * [3.1.1 /api/](#311-api)
+          * [3.1.2 /developer/](#312-developer)
+          * [3.1.3 /data/](#313-data)
+      * [3.2 Human readable intuitive keys](#32-human-readable-intuitive-keys)
+      * [3.3 Responses](#33-responses)
+          * [3.3.1 Values in Keys](#331-values-in-keys)
+          * [3.3.2 Internal Specific Keys](#332-internal-specific-keys)
+          * [3.3.3 Metadata is dataset properties](#333-metadata-is-dataset-properties)
+      * [3.4 Caching](#34-caching)
+      * [3.5 Client registration](#35-client-registration)
 * [Examples](#examples)
 
 ## This document
@@ -90,7 +90,7 @@ Interoperability depends greatly on common implementation at the very least a mi
 #### 1.1 HTTP Header
 Headers variables are part of the request and response cycle in the Hypertext Transfer Protocol (HTTP).  Although not explicitly prescribed by RESTful design header negotiation is a widely used method in defining state in format and/or language and as such need to be supported.  Supporting headers for format and language bridges, in part, a divide in the theory of proper implementation.
 
-The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request (e.g.: `Accept-Charset:`, `Accept-Encoding:`) or response (e.g.: `Content-Language:`, `Content-Length:`) can aid in delivery and efficiency where appropriate but are not required.
+The minimum header variables to be supported are media type through `Accept:` and language through `Accept-Language:`.  Supplemental header variables in request (e.g.: `Accept-Charset:`, `Accept-Encoding:`) or response (e.g.: `Content-Language:`, `Content-Length:`) can aid in delivery and efficiency where appropriate but are not required. {>> You mention request headers here, but don't specify any response headers. I'd suggest including at least a `Content-type:` response header with the appropriate mime type <<}
 
 Supplemental methods of specifying language or output formats such as [URI argument filtering](#23-uri-argument-filtering) or [URI path filtering](#24-uri-path-filtering) may override header variables when required.
 
@@ -118,6 +118,8 @@ Assuming dogs is a list of all dogs, dog id 1234 is an instance of dog named "Bo
 | /dogs/1234  | Error           | Show Bogart    | update Bogart    | Delete Bogart    |
 | /dogs/4321  | Error           | Show Shreddies | update Shreddies | Delete Shreddies |
 
+{>> For POST to the root resource, you state "Create new dogs". Does that mean that to create a single dog you need to pass a "set of one dog object", or will you also accept a single dog object? Basically, `POST /dogs [{ "name" : "Maggie" }]` vs `POSTS /dogs { "name" : "Maggie" }`.<<}
+
 HTTP Methods are described by W3C RFC2616 Sections 9.3, 9.4, 9.6 and 9.7 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
 ### 1.3 Output
@@ -132,6 +134,13 @@ Two fields are required in the metadata variable.
 
 * The creation date-time of the response in ISO 8601 date-time format with timezone.
 * The licenses relevant to the dataset presented.
+
+{>> I think this is one area where my opinion still diverges from yours. Dataset metadata and data records themselves are orthoganal, and I don't think they should be mixed in the API results. We did this with our SODA 1.0 API and it was a mess. Data is data and metadata is metadata, and they should be kept separate.   
+
+I'd recommend one of two options:
+
+- Move the metadata into relevant HTTP standard or `X-` API-specific headers. For example, use the `Last-Modified` header for the last time the data was updated and an `X-License` header for data licenses.
+- Create a new endpoint like `/dogs/$metadata` or `/metadata/dogs` that returns a document containing all of the metadata, and relate it via a URI in an `X-` header. <<}
 
 ```JSON
 {
@@ -212,6 +221,8 @@ French Only
 }
 ```
 
+{>> I'm not sure what the metadata connotes in this case. It's row-level metadata, and it points at the root resource. We don't document row-level metadata anywhere else in this document <<}
+
 English Only
 ```JSON
 {
@@ -227,7 +238,8 @@ English Only
 
 Bilingual, English and French endpoints must all offer bilingual, French or English results if requested by `Accept-Language:`, `query-parameter=` or other means.
 
-The calculated language (e.g.: `Accept-Language:` or query parameters) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API.
+The calculated language (e.g.: `Accept-Language:` or query parameters) should be overridden if the media-type is HTML and it conflicts with the official language of the public web page served from the API. {>> Not sure what you mean here. It sounds like this would be a way for the Quebec government to force an HTML page to be returned in French, even if I asked for English. But if I were to go to their site in a web browser and request English, they'd give me English <<}
+
 
 ```
 Accept: text/html
@@ -239,11 +251,12 @@ The scenario above could return English content on the French `http://exemple.gc
 
 ### 1.4 Documentation
 
-`TODO: Known gap, to be complete early Jan`
+`TODO: Known gap, to be complete early Jan` {>> Glad to help on this section once you start thinking about how you want to set documentation requirements <<}
 
 ### 1.5 Registration
 
-`TODO: Known gap, to be complete early Jan`
+`TODO: Known gap, to be complete early Jan` {>> Glad to help on this section once you start thinking about how you want to set registration requirements <<}
+
 
 ## 2. Optional features
 
@@ -258,7 +271,7 @@ Limits are nearly always mandatory, only limited size datasets are safe to to im
 * If no limit is specified, return results with a default limit.
     * Sanity check to a reasonable return size
     * Sanity check to a reasonable execution time
-    * For small datasets limits may exceed row count
+    * For small datasets limits may exceed row count {>> Maybe this is better written as "it's OK for limits passed by clients to be larger than the total row count of the dataset? <<}
 
 * Limits are row / object limits
     * The organization decides what is to be in a row or object
@@ -343,6 +356,9 @@ Information relevant to record limits, offsets and cursors should also be includ
     }
 }
 ```
+
+{>> As I suggewsted above, I'd include these as `X-`headers instead of as a metadata object <<}
+{>> I'd also include a `X-Next` URI header <<}
 
 ### 2.2 Structured Error Handling
 
@@ -462,6 +478,8 @@ Use one of the following as per the institution's inherent web delivery infrastr
 * `/developpeur-developer/`
 * `/développeur-developer/`
 
+{>> I don't know how it would jive with your translation requirements, but I'd really encourage one canonical path that's the same for all sites. Then any developer just knows to go to /developer or /api to look for documentation. Otherwise it'll get very confusing. <<} 
+
 #### 3.1.3 /data/
 
 The `/data/` directories are reserved for institutional use.  API development should no use `/data/` as the inherent home for APIs where `/data/apis/` would be acceptable.
@@ -475,6 +493,8 @@ This is true for the following directories
 * `/data-données/`
 * `/donnees-data/`
 * `/données-data/`
+
+{>> In the open data context, international organizations have gotten pretty comfortable with just using the english word 'data' or 'open data' in most places. Might reduce the need to have so many different confusing options <<} 
 
 ### 3.2 Human readable intuitive keys
 
